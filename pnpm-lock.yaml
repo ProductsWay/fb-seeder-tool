@@ -13,7 +13,7 @@ specifiers:
   react-dom: 18.2.0
   tailwindcss: 3.1.4
   typescript: 4.7.4
-  vite: 2.9.12
+  vite: 2.9.13
 
 dependencies:
   '@tauri-apps/api': 1.0.1
@@ -30,7 +30,7 @@ devDependencies:
   postcss: 8.4.14
   tailwindcss: 3.1.4
   typescript: 4.7.4
-  vite: 2.9.12
+  vite: 2.9.13
 
 packages:
 
@@ -1344,8 +1344,8 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
 
-  /vite/2.9.12:
-    resolution: {integrity: sha512-suxC36dQo9Rq1qMB2qiRorNJtJAdxguu5TMvBHOc/F370KvqAe9t48vYp+/TbPKRNrMh/J55tOUmkuIqstZaew==}
+  /vite/2.9.13:
+    resolution: {integrity: sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
