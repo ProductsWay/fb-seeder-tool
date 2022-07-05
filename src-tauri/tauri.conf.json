@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "fb-seeder-app",
+    "productName": "FB Seeding Tool",
     "version": "0.1.0"
   },
   "tauri": {
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.productsway.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

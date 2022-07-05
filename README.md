@@ -23,6 +23,12 @@ ni
 nr tauri dev
 ```
 
+## Build
+
+```sh
+nr tauri build
+```
+
 ## Run tests
 
 ```sh

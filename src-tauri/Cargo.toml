@@ -1,11 +1,11 @@
 [package]
-name = "app"
+name = "fb-seeder-app"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
-default-run = "app"
+description = "Effortless Facebook Seeding Tool"
+authors = ["Dung Huynh Duc"]
+license = "MIT"
+repository = "https://github.com/jellydn/fb-seeder-app"
+default-run = "fb-seeder-app"
 edition = "2021"
 rust-version = "1.57"
 
