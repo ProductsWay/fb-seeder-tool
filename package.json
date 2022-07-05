@@ -1,28 +1,46 @@
 {
   "name": "fb-seeder-app",
+  "version": "0.0.1",
   "private": true,
-  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
+    "dev": "vite",
+    "prepare": "husky install",
     "preview": "vite preview",
     "tauri": "tauri"
   },
   "dependencies": {
+    "@hookform/devtools": "4.1.1",
+    "@tailwindcss/typography": "^0.5.2",
     "@tauri-apps/api": "1.0.1",
-    "preline": "1.1.2",
+    "daisyui": "2.18.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.33.1",
+    "verbum": "0.3.2"
   },
   "devDependencies": {
     "@tauri-apps/cli": "1.0.2",
+    "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@types/react": "18.0.14",
-    "@types/react-dom": "18.0.5",
+    "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "5.30.5",
+    "@typescript-eslint/parser": "5.30.5",
     "@vitejs/plugin-react": "1.3.2",
     "autoprefixer": "10.4.7",
+    "eslint": "8.19.0",
+    "eslint-config-productsway": "0.1.15",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
     "postcss": "8.4.14",
+    "prettier": "2.7.1",
     "tailwindcss": "3.1.4",
     "typescript": "4.7.4",
     "vite": "2.9.13"
+  },
+  "lint-staged": {
+    "*.{js,tsx}": "eslint --cache --fix",
+    "*.{js,json,ts,tsx,css,md}": "prettier --write"
   }
 }

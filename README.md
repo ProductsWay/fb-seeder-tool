@@ -29,6 +29,11 @@ nr tauri dev
 nr test
 ```
 
+## Libraries used
+
+- Build an optimized, secure, and frontend-independent application for multi-platform deployment https://tauri.app/
+- Verbum is a fully flexible text editor based on lexical framework https://github.com/ozanyurtsever/verbum
+
 ## Author
 
 👤 **Dung Huynh**
