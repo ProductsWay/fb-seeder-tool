@@ -9,7 +9,7 @@ module.exports = {
   // daisyUI config (optional)
   daisyui: {
     styled: true,
-    hemes: [
+    themes: [
       {
         mytheme: {
           primary: "#ed4c49",
