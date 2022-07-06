@@ -40,6 +40,11 @@ nr test
 - Build an optimized, secure, and frontend-independent application for multi-platform deployment https://tauri.app/
 - Verbum is a fully flexible text editor based on lexical framework https://github.com/ozanyurtsever/verbum
 
+## Useful links
+
+- Calling Rust from the frontend https://tauri.app/v1/guides/features/command/
+- Inter-Process Communication https://tauri.app/v1/guides/architecture/inter-process-communication/
+
 ## Author
 
 👤 **Dung Huynh**
