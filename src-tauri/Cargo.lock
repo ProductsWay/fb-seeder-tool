@@ -607,7 +607,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "fb-seeder-app"
+name = "fb-seeder-tool"
 version = "0.1.0"
 dependencies = [
  "serde",

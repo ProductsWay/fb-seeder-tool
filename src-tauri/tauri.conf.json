@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "FB Seeding Tool",
+    "productName": "FB Seeder Tool",
     "version": "0.1.0"
   },
   "tauri": {
