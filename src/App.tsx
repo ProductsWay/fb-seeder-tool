@@ -1,4 +1,5 @@
 import { DevTool } from "@hookform/devtools";
+import { invoke } from "@tauri-apps/api";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -51,10 +52,21 @@ type FormValues = {
   lastName: string;
 };
 
+const onSubmitHandler = (name: string) => {
+  // now we can call our Command!
+  // Right-click the application background and open the developer tools.
+  // You will see "Hello, World!" printed in the console!
+  invoke("greet", { name })
+    // `invoke` returns a Promise
+    .then((response) => console.log(response));
+};
+
 function EditorForm() {
   const { register, handleSubmit, control } = useForm<FormValues>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data: FormValues) =>
+    onSubmitHandler(data.firstName + " " + data.lastName)
+  );
 
   return (
     <div className="min-h-screen bg-base-200">
