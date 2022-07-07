@@ -1,6 +1,6 @@
 import { DevTool } from "@hookform/devtools";
 import { invoke } from "@tauri-apps/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   EditorComposer,
@@ -50,6 +50,7 @@ const NoteViewer = () => {
 type FormValues = {
   firstName: string;
   lastName: string;
+  accessToken: string;
 };
 
 const onSubmitHandler = (name: string) => {
@@ -60,13 +61,22 @@ const onSubmitHandler = (name: string) => {
     // `invoke` returns a Promise
     .then((response) => console.log(response));
 };
+import useLocalStorageState from "use-local-storage-state";
 
 function EditorForm() {
-  const { register, handleSubmit, control } = useForm<FormValues>();
-
+  const { register, handleSubmit, control, watch } = useForm<FormValues>();
+  const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
+    defaultValue: "",
+  });
   const onSubmit = handleSubmit((data: FormValues) =>
     onSubmitHandler(data.firstName + " " + data.lastName)
   );
+
+  const token = watch("accessToken");
+
+  useEffect(() => {
+    setAccessToken(token);
+  }, [token]);
 
   return (
     <div className="min-h-screen bg-base-200">
@@ -85,6 +95,18 @@ function EditorForm() {
           </label>
           <input className="w-full max-w-xs input" {...register("lastName")} />
         </div>
+        <div className="w-full max-w-xs form-control">
+          <label className="label">
+            <span className="label-text">Access Token</span>
+          </label>
+          <textarea
+            className="textarea textarea-bordered"
+            placeholder="Place your access token"
+            defaultValue={accessToken}
+            {...register("accessToken")}
+          />
+        </div>
+
         <div className="w-full max-w-xs mt-4 form-control">
           <button className="btn" type="submit">
             Submit
