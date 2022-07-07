@@ -29,3 +29,6 @@ dist-ssr
 # Env files
 .env
 .env.local
+
+# Cache
+.eslintcache

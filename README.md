@@ -20,7 +20,7 @@
 - [React-hook-form: performance, flexible and extensible forms with easy-to-use validation](https://www.react-hook-form.com/)
 - [new-web-app:: Frontend app generator, built on top vitejs](https://github.com/jellydn/new-web-app)
 
-- And other standard tools as [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Lint-staged](https://github.com/okonet/lint-staged)
+- And other standard tools as [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Nano-staged](https://github.com/usmanyunusov/nano-staged)
 
 ## Install
 
