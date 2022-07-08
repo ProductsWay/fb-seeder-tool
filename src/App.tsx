@@ -2,6 +2,7 @@ import { DevTool } from "@hookform/devtools";
 import { invoke } from "@tauri-apps/api";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import useLocalStorageState from "use-local-storage-state";
 import {
   EditorComposer,
   Editor,
@@ -23,27 +24,29 @@ import {
 
 const NoteViewer = () => {
   return (
-    <EditorComposer>
-      <Editor hashtagsEnabled={true}>
-        <ToolbarPlugin defaultFontSize="20px">
-          <FontFamilyDropdown />
-          <FontSizeDropdown />
-          <Divider />
-          <BoldButton />
-          <ItalicButton />
-          <UnderlineButton />
-          <CodeFormatButton />
-          <InsertLinkButton />
-          <TextColorPicker />
-          <BackgroundColorPicker />
-          <TextFormatDropdown />
-          <Divider />
-          <InsertDropdown enablePoll={true} />
-          <Divider />
-          <AlignDropdown />
-        </ToolbarPlugin>
-      </Editor>
-    </EditorComposer>
+    <div className="justify-center h-screen items-center flex bg-base-200 mx-auto">
+      <EditorComposer>
+        <Editor hashtagsEnabled={true}>
+          <ToolbarPlugin defaultFontSize="20px">
+            <FontFamilyDropdown />
+            <FontSizeDropdown />
+            <Divider />
+            <BoldButton />
+            <ItalicButton />
+            <UnderlineButton />
+            <CodeFormatButton />
+            <InsertLinkButton />
+            <TextColorPicker />
+            <BackgroundColorPicker />
+            <TextFormatDropdown />
+            <Divider />
+            <InsertDropdown enablePoll={true} />
+            <Divider />
+            <AlignDropdown />
+          </ToolbarPlugin>
+        </Editor>
+      </EditorComposer>
+    </div>
   );
 };
 
@@ -53,24 +56,31 @@ type FormValues = {
   accessToken: string;
 };
 
-const onSubmitHandler = (name: string) => {
-  // now we can call our Command!
-  // Right-click the application background and open the developer tools.
-  // You will see "Hello, World!" printed in the console!
+function greeter(name: string) {
   invoke("greet", { name })
     // `invoke` returns a Promise
-    .then((response) => console.log(response));
+    .then((response) => alert(response))
+    .catch(console.error);
+}
+
+function getFacebookPages(token: string) {
+  invoke("fb_pages", { token })
+    // `invoke` returns a Promise
+    .then((response) => alert(response))
+    .catch(console.error);
+}
+
+const onSubmitHandler = (data: FormValues) => {
+  greeter(data.firstName + " " + data.lastName);
+  getFacebookPages(data.accessToken);
 };
-import useLocalStorageState from "use-local-storage-state";
 
 function EditorForm() {
   const { register, handleSubmit, control, watch } = useForm<FormValues>();
   const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
-  const onSubmit = handleSubmit((data: FormValues) =>
-    onSubmitHandler(data.firstName + " " + data.lastName)
-  );
+  const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
 
   const token = watch("accessToken");
 
@@ -79,23 +89,23 @@ function EditorForm() {
   }, [token]);
 
   return (
-    <div className="min-h-screen bg-base-200">
+    <div className="justify-center h-screen items-center flex bg-base-200 mx-auto">
       <DevTool control={control} placement={"top-right"} />
 
       <form className="container max-w-md p-4" onSubmit={onSubmit}>
-        <div className="w-full max-w-xs form-control">
+        <div className="w-full form-control">
           <label className="label">
             <span className="label-text">First name</span>
           </label>
-          <input className="w-full max-w-xs input" {...register("firstName")} />
+          <input className="w-full input" {...register("firstName")} />
         </div>
-        <div className="w-full max-w-xs form-control">
+        <div className="w-full form-control">
           <label className="label">
             <span className="label-text">Last name</span>
           </label>
-          <input className="w-full max-w-xs input" {...register("lastName")} />
+          <input className="w-full input" {...register("lastName")} />
         </div>
-        <div className="w-full max-w-xs form-control">
+        <div className="w-full form-control">
           <label className="label">
             <span className="label-text">Access Token</span>
           </label>
@@ -107,7 +117,7 @@ function EditorForm() {
           />
         </div>
 
-        <div className="w-full max-w-xs mt-4 form-control">
+        <div className="w-full mt-4 form-control">
           <button className="btn" type="submit">
             Submit
           </button>

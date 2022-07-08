@@ -18,7 +18,9 @@
 - [Tauri: Build an optimized, secure, and frontend-independent application for multi-platform deployment.](https://tauri.app/)
 - [Tailwindcss: rapidly build modern websites without ever leaving your HTML](https://tailwindcss.com/)
 - [React-hook-form: performance, flexible and extensible forms with easy-to-use validation](https://www.react-hook-form.com/)
-- [new-web-app:: Frontend app generator, built on top vitejs](https://github.com/jellydn/new-web-app)
+- [new-web-app: Frontend app generator, built on top vitejs](https://github.com/jellydn/new-web-app)
+- [Verbum: is a fully flexible text editor based on lexical framework](https://github.com/ozanyurtsever/verbum)
+- [use-local-storage-state: React hook that persists data in localStorage](https://github.com/astoilkov/use-local-storage-state)
 
 - And other standard tools as [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Nano-staged](https://github.com/usmanyunusov/nano-staged)
 
@@ -46,12 +48,6 @@ nr tauri build
 nr test
 ```
 
-## Libraries used
-
-- Build an optimized, secure, and frontend-independent application for multi-platform deployment https://tauri.app/
-- Verbum is a fully flexible text editor based on lexical framework https://github.com/ozanyurtsever/verbum
-- React hook that persists data in localStorage https://github.com/astoilkov/use-local-storage-state
-
 ## Useful links
 
 - Calling Rust from the frontend https://tauri.app/v1/guides/features/command/
@@ -60,7 +56,6 @@ nr test
 ## TODO
 
 - [ ] Add usage on readme how to create FB app and get access token
-- [ ] Persist token on local storage
 - [ ] Preview the content on editor
 - [ ] Share to page
 - [ ] Share to groups
