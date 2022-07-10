@@ -1,6 +1,5 @@
 import { DevTool } from "@hookform/devtools";
-import { invoke } from "@tauri-apps/api";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useLocalStorageState from "use-local-storage-state";
 import {
@@ -21,12 +20,10 @@ import {
   UnderlineButton,
   Divider,
 } from "verbum";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useInfiniteQuery,
-} from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { FbPages } from "./components/FbPages";
+import { FbGroups } from "./components/FbGroups";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,65 +34,14 @@ const queryClient = new QueryClient({
   },
 });
 
-async function getFacebookPages(token: string, after = "") {
-  const response = await invoke<string>("fb_pages", { token, after });
-  const { data, paging } = JSON.parse(response);
-
-  return {
-    pages: data as Array<{
-      id: number;
-      name: string;
-      link: string;
-      description?: string;
-      picture?: {
-        data?: {
-          url?: string;
-        };
-      };
-    }>,
-    nextCursor: paging?.cursors?.after,
-  };
-}
-
 const NoteViewer = () => {
+  const [tab, setTab] = useState<"group" | "page">("group");
   const [accessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
 
-  const {
-    isLoading,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetching,
-    isFetchingNextPage,
-    status,
-    data,
-  } = useInfiniteQuery(
-    ["fb-pages", accessToken],
-    ({ pageParam }) => getFacebookPages(accessToken, pageParam),
-    {
-      enabled: accessToken !== "",
-      getNextPageParam: (lastPage) => lastPage.nextCursor,
-    }
-  );
-
-  if (status === "loading" || isLoading)
-    return (
-      <div className="justify-center h-screen items-center flex mx-auto">
-        <progress className="progress w-56"></progress>
-      </div>
-    );
-
-  if (error)
-    return (
-      <div className="justify-center h-screen items-center flex mx-auto">
-        <p>{`An error has occurred: ${(error as Error).message}`}</p>
-      </div>
-    );
-
   return (
-    <div className="flex flex-col mx-auto">
+    <div className="flex flex-col mx-auto px-4 py-8">
       <div className="h-96 mx-auto">
         <EditorComposer>
           <Editor hashtagsEnabled={true}>
@@ -119,53 +65,29 @@ const NoteViewer = () => {
           </Editor>
         </EditorComposer>
       </div>
-      <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
-        {/* Show all pages */}
-        {(data?.pages ?? []).map((group, index) => (
-          <React.Fragment key={index}>
-            {group.pages.map((page) => (
-              <div
-                key={page.id}
-                className="mx-auto card card-side w-full h-44 bg-base-100 shadow-xl"
-              >
-                {page.picture?.data?.url && (
-                  <figure>
-                    <img src={page.picture?.data?.url} alt={page.name} />
-                  </figure>
-                )}
-                <div className="card-body">
-                  <h2 className="card-title">{page.name}</h2>
-                  <p className="text-clip overflow-hidden">
-                    {page.description}
-                  </p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Select</button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </React.Fragment>
-        ))}
-        <div className="mx-auto mt-4 card w-full bg-base-100 shadow-xl mb-24">
-          <button
-            onClick={() => fetchNextPage()}
-            disabled={!hasNextPage || isFetchingNextPage}
-            className="btn btn-secondary"
-          >
-            {isFetchingNextPage
-              ? "Loading more..."
-              : hasNextPage
-              ? "Load More"
-              : "Nothing more to load"}
-          </button>
-        </div>
-
-        {isFetching ? (
-          <div className="justify-center h-screen items-center flex mx-auto">
-            <progress className="progress w-56">Refreshing...</progress>
-          </div>
-        ) : null}
+      <div className="tabs">
+        <a
+          onClick={() => setTab("group")}
+          className={
+            tab === "group" ? "tab tab-lifted tab-active" : "tab tab-lifted"
+          }
+        >
+          My Groups
+        </a>
+        <a
+          onClick={() => setTab("page")}
+          className={
+            tab === "page" ? "tab tab-lifted tab-active" : "tab tab-lifted"
+          }
+        >
+          My Pages
+        </a>
       </div>
+      {tab === "group" ? (
+        <FbGroups accessToken={accessToken} />
+      ) : (
+        <FbPages accessToken={accessToken} />
+      )}
     </div>
   );
 };

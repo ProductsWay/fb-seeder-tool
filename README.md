@@ -65,6 +65,7 @@ nr test
 ## TODO
 
 - [ ] Add usage on readme how to create FB app and get access token
+  - Scopes: user_posts, pages_show_list, publish_to_groups, pages_read_engagement, pages_manage_posts, public_profile
 - [ ] Preview the content on editor
 - [ ] Share to page
 - [ ] Share to groups

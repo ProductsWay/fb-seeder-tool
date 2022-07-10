@@ -7,13 +7,32 @@ extern crate log;
 mod fb;
 
 #[tokio::main]
+async fn my_fb_groups(
+    token: &str,
+    after: &str,
+) -> Result<fb::FacebookGroups, Box<dyn std::error::Error>> {
+    let resp = reqwest::get(
+        format!(
+            "https://graph.facebook.com/v14.0/me/groups?fields=id,name,link,description,picture&access_token={}&after={}",
+            token, after
+        )
+        .as_str(),
+    )
+    .await?
+    .json::<fb::FacebookGroups>()
+    .await?;
+
+    Ok(resp)
+}
+
+#[tokio::main]
 async fn my_fb_pages(
     token: &str,
     after: &str,
 ) -> Result<fb::FacebookPages, Box<dyn std::error::Error>> {
     let resp = reqwest::get(
         format!(
-            "https://graph.facebook.com/v14.0/me/groups?fields=id,name,link,description,picture&access_token={}&after={}",
+            "https://graph.facebook.com/v14.0/me/accounts?fields=page_token&access_token={}&after={}",
             token, after
         )
         .as_str(),
@@ -26,8 +45,14 @@ async fn my_fb_pages(
 }
 
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}!", name)
+fn fb_groups(token: &str, after: &str) -> String {
+    // serialize the response to a json string
+    let resp = my_fb_groups(token, after).unwrap();
+    let json = serde_json::to_string(&resp).unwrap();
+
+    // debug to the console
+    warn!("facebook groups {}", json);
+    json
 }
 
 #[tauri::command]
@@ -48,7 +73,7 @@ fn main() {
     let context = tauri::generate_context!();
     tauri::Builder::default()
         .menu(tauri::Menu::os_default(&context.package_info().name))
-        .invoke_handler(tauri::generate_handler![fb_pages, greet])
+        .invoke_handler(tauri::generate_handler![fb_groups, fb_pages])
         .run(context)
         .expect("error while running tauri application");
 }

@@ -3,16 +3,24 @@ use serde::{Deserialize, Serialize};
 extern crate serde_json;
 
 #[derive(Serialize, Deserialize)]
+pub struct FacebookGroups {
+    #[serde(rename = "data")]
+    data: Vec<GroupDatum>,
+
+    #[serde(rename = "paging")]
+    paging: Option<Paging>,
+}
+#[derive(Serialize, Deserialize)]
 pub struct FacebookPages {
     #[serde(rename = "data")]
-    data: Vec<Datum>,
+    data: Vec<PageDatum>,
 
     #[serde(rename = "paging")]
     paging: Option<Paging>,
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct Datum {
+pub struct GroupDatum {
     #[serde(rename = "id")]
     id: String,
 
@@ -24,6 +32,14 @@ pub struct Datum {
 
     #[serde(rename = "picture")]
     picture: Option<Picture>,
+}
+#[derive(Serialize, Deserialize)]
+pub struct PageDatum {
+    #[serde(rename = "id")]
+    id: String,
+
+    #[serde(rename = "page_token")]
+    page_token: String,
 }
 
 #[derive(Serialize, Deserialize)]
