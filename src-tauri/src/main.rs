@@ -1,24 +1,55 @@
 #![cfg_attr(
-  all(not(debug_assertions), target_os = "windows"),
-  windows_subsystem = "windows"
+    all(not(debug_assertions), target_os = "windows"),
+    windows_subsystem = "windows"
 )]
+#[macro_use]
+extern crate log;
+mod fb;
+
+#[tokio::main]
+async fn my_fb_pages(
+    token: &str,
+    after: &str,
+) -> Result<fb::FacebookPages, Box<dyn std::error::Error>> {
+    let resp = reqwest::get(
+        format!(
+            "https://graph.facebook.com/v14.0/me/groups?fields=id,name,link,description,picture&access_token={}&after={}",
+            token, after
+        )
+        .as_str(),
+    )
+    .await?
+    .json::<fb::FacebookPages>()
+    .await?;
+
+    Ok(resp)
+}
 
 #[tauri::command]
 fn greet(name: &str) -> String {
-   format!("Hello, {}!", name)
+    format!("Hello, {}!", name)
 }
 
 // TODO: get fb pages with the access token
 #[tauri::command]
-fn fb_pages(token: &str) -> String {
-   format!("Get fb pages with, {}!", token)
+fn fb_pages(token: &str, after: &str) -> String {
+    // serialize the response to a json string
+    let resp = my_fb_pages(token, after).unwrap();
+    let json = serde_json::to_string(&resp).unwrap();
+
+    // debug to the console
+    warn!("facebook pages {}", json);
+    json
 }
 
 fn main() {
-  let context = tauri::generate_context!();
-  tauri::Builder::default()
-    .menu(tauri::Menu::os_default(&context.package_info().name))
-    .invoke_handler(tauri::generate_handler![fb_pages, greet])
-    .run(context)
-    .expect("error while running tauri application");
+    env_logger::init();
+    info!("starting up");
+
+    let context = tauri::generate_context!();
+    tauri::Builder::default()
+        .menu(tauri::Menu::os_default(&context.package_info().name))
+        .invoke_handler(tauri::generate_handler![fb_pages, greet])
+        .run(context)
+        .expect("error while running tauri application");
 }
