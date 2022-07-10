@@ -15,7 +15,7 @@ specifiers:
   '@vitejs/plugin-react': 1.3.2
   autoprefixer: 10.4.7
   c8: 7.11.3
-  daisyui: 2.18.1
+  daisyui: 2.19.0
   eslint: 8.19.0
   eslint-config-productsway: 0.1.15
   happy-dom: 6.0.2
@@ -34,14 +34,14 @@ specifiers:
   typescript: 4.7.4
   use-local-storage-state: 18.1.0
   verbum: 0.3.2
-  vite: 2.9.13
-  vitest: 0.17.1
+  vite: 2.9.14
+  vitest: 0.18.0
 
 dependencies:
   '@hookform/devtools': 4.1.1_aw7xi3kbxeg5wnf3ooz6ilet6i
   '@tailwindcss/typography': 0.5.3_tailwindcss@3.1.5
   '@tauri-apps/api': 1.0.2
-  daisyui: 2.18.1_ugi4xkrfysqkt4c4y6hkyfj344
+  daisyui: 2.19.0_ugi4xkrfysqkt4c4y6hkyfj344
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.33.1_react@18.2.0
@@ -73,8 +73,8 @@ devDependencies:
   tailwindcss: 3.1.5
   tsx: 3.7.1
   typescript: 4.7.4
-  vite: 2.9.13
-  vitest: 0.17.1_c8@7.11.3+happy-dom@6.0.2
+  vite: 2.9.14
+  vitest: 0.18.0_c8@7.11.3+happy-dom@6.0.2
 
 packages:
 
@@ -1822,8 +1822,8 @@ packages:
   /csstype/3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
 
-  /daisyui/2.18.1_ugi4xkrfysqkt4c4y6hkyfj344:
-    resolution: {integrity: sha512-MBmhUxkFefa9WvIWcOg2XYadHpZNakgFDHzfQJ75C4S3Vy0I9m9xZiiZgqhR9dQd1YnFal/E30i4FgpRSVtRSw==}
+  /daisyui/2.19.0_ugi4xkrfysqkt4c4y6hkyfj344:
+    resolution: {integrity: sha512-lLOz4cHm3xpm0AfdFojDFrhiDu4hZTdEbcVJri+KzQn1HvxmZS4STVujn8tV4RQXjchGdnIsXFqxd6F7rVZBiA==}
     peerDependencies:
       autoprefixer: ^10.0.2
       postcss: ^8.1.6
@@ -4570,8 +4570,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /vite/2.9.13:
-    resolution: {integrity: sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw==}
+  /vite/2.9.14:
+    resolution: {integrity: sha512-P/UCjSpSMcE54r4mPak55hWAZPlyfS369svib/gpmz8/01L822lMPOJ/RYW6tLCe1RPvMvOsJ17erf55bKp4Hw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
@@ -4594,8 +4594,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.17.1_c8@7.11.3+happy-dom@6.0.2:
-    resolution: {integrity: sha512-d6NsFC6FPmZ5XdiSYfW5rwJ/b8060wqe2steNNlVbhO69HWma6CucIm5g7PXlCSkmKvrdEbUsZHPAarlH83VGw==}
+  /vitest/0.18.0_c8@7.11.3+happy-dom@6.0.2:
+    resolution: {integrity: sha512-ryAtlh5Gvg3+aLNuOQ8YOHxgQCCu46jx40X5MBL0K0/ejB9i5zsr8fV8LTGXbXex80UMHlzceI9F+ouGaiR+mQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -4626,7 +4626,7 @@ packages:
       local-pkg: 0.4.1
       tinypool: 0.2.2
       tinyspy: 0.3.3
-      vite: 2.9.13
+      vite: 2.9.14
     transitivePeerDependencies:
       - less
       - sass
