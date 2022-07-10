@@ -17,20 +17,12 @@ test("navigate to form and submit data", async ({ page }) => {
   // Click .btm-nav > button:nth-child(3)
   await page.locator(".btm-nav > button:nth-child(3)").click();
 
-  // Click input[name="firstName"]
-  await page.locator('input[name="firstName"]').click();
-
-  // Fill input[name="firstName"]
-  await page.locator('input[name="firstName"]').fill("Dung");
-  expect(await page.locator('input[name="firstName"]')).toHaveValue("Dung");
-
-  // Click input[name="lastName"]
-  await page.locator('input[name="lastName"]').click();
-
-  // Fill input[name="lastName"]
-  await page.locator('input[name="lastName"]').fill("Huynh");
-  expect(await page.locator('input[name="lastName"]')).toHaveValue("Huynh");
+  // Fill input[name="accessToken"]
+  await page.locator('textarea[name="accessToken"]').fill("fbToken");
+  expect(await page.locator('textarea[name="accessToken"]')).toHaveValue(
+    "fbToken"
+  );
 
   // Click button:has-text("Submit")
-  await page.locator('button:has-text("Submit")').click();
+  await page.locator('button:has-text("Save")').click();
 });

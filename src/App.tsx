@@ -205,7 +205,9 @@ function SettingForm({
             className="textarea textarea-bordered"
             placeholder="Place your access token"
             defaultValue={accessToken}
-            {...register("accessToken")}
+            {...register("accessToken", {
+              required: true,
+            })}
           />
         </div>
 
