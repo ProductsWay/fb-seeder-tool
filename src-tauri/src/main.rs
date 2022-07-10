@@ -30,7 +30,6 @@ fn greet(name: &str) -> String {
     format!("Hello, {}!", name)
 }
 
-// TODO: get fb pages with the access token
 #[tauri::command]
 fn fb_pages(token: &str, after: &str) -> String {
     // serialize the response to a json string

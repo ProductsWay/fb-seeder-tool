@@ -5,6 +5,8 @@
 
 > FB Seeder App
 
+[![IT Man - Tech #22 - Tauri App - Build smaller, faster, and more secure desktop [Vietnamese]](https://i.ytimg.com/vi/SdLGyC8BtOE/hqdefault.jpg)](https://www.youtube.com/watch?v=SdLGyC8BtOE)
+
 ## Prerequisites
 
 [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
@@ -37,11 +39,17 @@ ni
 nr tauri dev
 ```
 
+![https://gyazo.com/44138993476442256ffb1518b87b71e3.gif](https://gyazo.com/44138993476442256ffb1518b87b71e3.gif)
+
+![https://gyazo.com/fc96fac098644f713fbc17fa3c330634.gif](https://gyazo.com/fc96fac098644f713fbc17fa3c330634.gif)
+
 ## Build
 
 ```sh
 nr tauri build
 ```
+
+![https://gyazo.com/b043bda7e44cfbc5518836dc49376962.gif](https://gyazo.com/b043bda7e44cfbc5518836dc49376962.gif)
 
 ## Run tests
 
