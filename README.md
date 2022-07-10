@@ -22,6 +22,7 @@
 - [Verbum: is a fully flexible text editor based on lexical framework](https://github.com/ozanyurtsever/verbum)
 - [new-web-app: Frontend app generator, built on top vitejs](https://github.com/jellydn/new-web-app)
 - [use-local-storage-state: React hook that persists data in localStorage](https://github.com/astoilkov/use-local-storage-state)
+- Testing with [vitest](https://vitest.dev/)and [playwright](https://playwright.dev/)
 - And other standard tools as [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Nano-staged](https://github.com/usmanyunusov/nano-staged)
 
 ## Install
