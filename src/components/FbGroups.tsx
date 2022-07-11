@@ -39,21 +39,27 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
   return (
     <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
       {/* Show all pages */}
-      {(data?.pages ?? []).map((group, index) => (
+      {(data?.pages ?? []).map((currentGroup, index) => (
         <React.Fragment key={index}>
-          {group.groups.map((page) => (
+          {currentGroup.groups.map((group) => (
             <div
-              key={page.id}
+              key={group.id}
               className="mx-auto card card-side w-full h-44 bg-base-100 shadow-xl"
             >
-              {page.picture?.data?.url && (
+              {group.picture?.data?.url && (
                 <figure>
-                  <img src={page.picture?.data?.url} alt={page.name} />
+                  <img src={group.picture?.data?.url} alt={group.name} />
                 </figure>
               )}
               <div className="card-body">
-                <h2 className="card-title">{page.name}</h2>
-                <p className="text-clip overflow-hidden">{page.description}</p>
+                <a
+                  className="link link-accent"
+                  href={"https://facebook.com/" + group.id}
+                  target="_blank"
+                >
+                  <h2 className="card-title">{group.name}</h2>
+                </a>
+                <p className="text-clip overflow-hidden">{group.description}</p>
                 <div className="card-actions justify-end">
                   <button className="btn btn-primary">Select</button>
                 </div>

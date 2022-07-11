@@ -62,6 +62,7 @@ const NoteViewer = () => {
     <div className="flex flex-col mx-auto px-4 py-8">
       <div className="h-96 mx-auto">
         <EditorComposer>
+          {/* TODO: support get value from editor when verbum is ready */}
           <Editor hashtagsEnabled={true}>
             <ToolbarPlugin defaultFontSize="2px">
               <FontFamilyDropdown />
@@ -101,11 +102,13 @@ const NoteViewer = () => {
           My Pages
         </a>
       </div>
-      {tab === "group" ? (
-        <FbGroups accessToken={accessToken} />
-      ) : (
-        <FbPages accessToken={accessToken} />
-      )}
+      <div className="mt-2 bg-base-200 py-2">
+        {tab === "group" ? (
+          <FbGroups accessToken={accessToken} />
+        ) : (
+          <FbPages accessToken={accessToken} />
+        )}
+      </div>
     </div>
   );
 };

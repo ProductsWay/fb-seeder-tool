@@ -39,15 +39,21 @@ export const FbPages = ({ accessToken }: { accessToken: string }) => {
   return (
     <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
       {/* Show all pages */}
-      {(data?.pages ?? []).map((group, index) => (
+      {(data?.pages ?? []).map((currentGroup, index) => (
         <React.Fragment key={index}>
-          {group.pages.map((page) => (
+          {currentGroup.pages.map((page) => (
             <div
               key={page.id}
               className="mx-auto card card-side w-full h-44 bg-base-100 shadow-xl"
             >
               <div className="card-body">
-                <h2 className="card-title">{page.page_token}</h2>
+                <a
+                  className="link link-accent"
+                  href={"https://facebook.com/" + page.id}
+                  target="_blank"
+                >
+                  <h2 className="card-title">{page.page_token}</h2>
+                </a>
                 <div className="card-actions justify-end">
                   <button className="btn btn-primary">Select</button>
                 </div>
