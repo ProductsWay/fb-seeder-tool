@@ -1,5 +1,6 @@
 import React from "react";
 import { useInfiniteQuery } from "react-query";
+
 import { getFacebookPages } from "../utils/api";
 
 export const FbPages = ({ accessToken }: { accessToken: string }) => {
