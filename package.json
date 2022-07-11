@@ -15,7 +15,7 @@
     "test:e2e": "npx playwright test"
   },
   "dependencies": {
-    "@hookform/devtools": "4.1.1",
+    "@hookform/devtools": "4.2.0",
     "@tailwindcss/typography": "0.5.3",
     "@tauri-apps/api": "1.0.2",
     "daisyui": "2.19.0",
