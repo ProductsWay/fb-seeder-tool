@@ -20,6 +20,7 @@ specifiers:
   eslint-config-productsway: 0.1.15
   happy-dom: 6.0.3
   husky: 8.0.1
+  jotai: 1.7.4
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
   pino: 8.1.0
@@ -44,6 +45,7 @@ dependencies:
   '@tailwindcss/typography': 0.5.3_tailwindcss@3.1.5
   '@tauri-apps/api': 1.0.2
   daisyui: 2.19.0_a191cbaa25c4a0a9f05cc78eac153be7
+  jotai: 1.7.4_6171ea764f204acd0ecf44d3255db83e
   pino: 8.1.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3104,6 +3106,44 @@ packages:
   /javascript-natural-sort/0.7.1:
     resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
     dev: true
+
+  /jotai/1.7.4_6171ea764f204acd0ecf44d3255db83e:
+    resolution: {integrity: sha512-PvkjL6DA4I0GFNFWt/1MKouTpN6Ohj0qyfuV4LoYGBHQRlf38qF6cPILozYsYZi2Nfeap9MdzWVGSYu1qBElKQ==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@babel/core': '*'
+      '@babel/template': '*'
+      '@urql/core': '*'
+      immer: '*'
+      optics-ts: '*'
+      react: '>=16.8'
+      react-query: '*'
+      valtio: '*'
+      wonka: '*'
+      xstate: '*'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
+      '@urql/core':
+        optional: true
+      immer:
+        optional: true
+      optics-ts:
+        optional: true
+      react-query:
+        optional: true
+      valtio:
+        optional: true
+      wonka:
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-query: 4.0.0-beta.23_react-dom@18.2.0+react@18.2.0
+    dev: false
 
   /js-sha3/0.8.0:
     resolution: {integrity: sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==}

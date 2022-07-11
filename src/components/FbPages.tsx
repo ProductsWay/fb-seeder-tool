@@ -1,9 +1,12 @@
+import { useAtom } from "jotai";
 import React from "react";
 import { useInfiniteQuery } from "react-query";
 
+import { selectedFacebookIdsAtom } from "../store";
 import { getFacebookPages } from "../utils/api";
 
 export const FbPages = ({ accessToken }: { accessToken: string }) => {
+  const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
   const {
     isLoading,
     error,
@@ -55,7 +58,18 @@ export const FbPages = ({ accessToken }: { accessToken: string }) => {
                   <h2 className="card-title">{page.page_token}</h2>
                 </a>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Select</button>
+                  <button
+                    onClick={() =>
+                      setIds(
+                        ids.includes(page.id)
+                          ? ids.filter((id) => id !== page.id)
+                          : [...ids, page.id]
+                      )
+                    }
+                    className="btn btn-primary"
+                  >
+                    {ids.includes(page.id) ? "Remove" : "Add"}
+                  </button>
                 </div>
               </div>
             </div>

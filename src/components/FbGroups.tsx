@@ -1,9 +1,13 @@
+import { useAtom } from "jotai";
 import React from "react";
 import { useInfiniteQuery } from "react-query";
 
+import { selectedFacebookIdsAtom } from "../store";
 import { getFacebookGroup } from "../utils/api";
 
 export const FbGroups = ({ accessToken }: { accessToken: string }) => {
+  const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
+
   const {
     isLoading,
     error,
@@ -61,7 +65,18 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
                 </a>
                 <p className="text-clip overflow-hidden">{group.description}</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Select</button>
+                  <button
+                    onClick={() =>
+                      setIds(
+                        ids.includes(group.id)
+                          ? ids.filter((id) => id !== group.id)
+                          : [...ids, group.id]
+                      )
+                    }
+                    className="btn btn-primary"
+                  >
+                    {ids.includes(group.id) ? "Remove" : "Add"}
+                  </button>
                 </div>
               </div>
             </div>
