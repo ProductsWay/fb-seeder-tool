@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@hookform/devtools': 4.2.0
+  '@hookform/devtools': 4.2.2
   '@playwright/test': 1.23.2
   '@tailwindcss/typography': 0.5.4
   '@tauri-apps/api': 1.0.2
@@ -41,7 +41,7 @@ specifiers:
   vitest: 0.18.0
 
 dependencies:
-  '@hookform/devtools': 4.2.0_08741bd84ef3e6fa073678331eea05f2
+  '@hookform/devtools': 4.2.2_08741bd84ef3e6fa073678331eea05f2
   '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.6
   '@tauri-apps/api': 1.0.2
   daisyui: 2.19.0_a191cbaa25c4a0a9f05cc78eac153be7
@@ -607,8 +607,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@hookform/devtools/4.2.0_08741bd84ef3e6fa073678331eea05f2:
-    resolution: {integrity: sha512-+MY5L8siEOi4ruSphEz8XWoEh4VpmeoqkTfMsWn/9dsALWZyTF/sjKzr5L+lIDiikkY0DoleSyUDOsi7TTodBA==}
+  /@hookform/devtools/4.2.2_08741bd84ef3e6fa073678331eea05f2:
+    resolution: {integrity: sha512-0Sfweb4jkoGDivO+UF8QH1tf4pQQ0Ll00MjxMFWL+rORy2Xrf5m0QlxRESJnCd72VYRCZA5TO+2G9h7uPlMLzQ==}
     peerDependencies:
       react: '>=17.0.2'
       react-dom: '>=17.0.2'
@@ -618,11 +618,11 @@ packages:
       '@types/lodash': 4.14.182
       little-state-machine: 4.4.1_react@18.2.0
       lodash: 4.17.21
-      nanoid: 4.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-simple-animate: 3.5.0_react-dom@18.2.0
       use-deep-compare-effect: 1.8.1_react@18.2.0
+      uuid: 8.3.2
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/react'
@@ -3542,12 +3542,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  /nanoid/4.0.0:
-    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
-    engines: {node: ^14 || ^16 || >=18}
-    hasBin: true
-    dev: false
-
   /napi-macros/2.0.0:
     resolution: {integrity: sha512-A0xLykHtARfueITVDernsAWdtIMbOJgKgcluwENp3AlsKN/PloyO10HtmoqnFAQAcxPkgZN7wdfPfEd0zNGxbg==}
     dev: false
@@ -4699,6 +4693,11 @@ packages:
   /utility-types/3.10.0:
     resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
     engines: {node: '>= 4'}
+    dev: false
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
     dev: false
 
   /v8-compile-cache/2.3.0:
