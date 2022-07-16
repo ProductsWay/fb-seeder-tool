@@ -1,9 +1,9 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test("navigate to form and submit data", async ({ page }) => {
-  // Go to http://localhost:3000/
+  // Go to http://localhost:5173/
   await page.goto(
-    process.env?.PLAYWRIGHT_TEST_BASE_URL ?? "http://localhost:3000/"
+    process.env?.PLAYWRIGHT_TEST_BASE_URL ?? "http://localhost:5173/"
   );
 
   // Click text=FB Seeder - Effortless Facebook Seeding
