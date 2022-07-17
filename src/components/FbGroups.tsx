@@ -2,7 +2,11 @@ import { useAtom } from "jotai";
 import React from "react";
 import { useInfiniteQuery } from "react-query";
 
-import { favoriteFacebookIdsAtom, selectedFacebookIdsAtom } from "../store";
+import {
+  favoriteFacebookIdsAtom,
+  isSelected,
+  selectedFacebookIdsAtom,
+} from "../store";
 import { getFacebookGroup } from "../utils/api";
 
 export const FbGroups = ({ accessToken }: { accessToken: string }) => {
@@ -100,14 +104,16 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
                   <button
                     onClick={() =>
                       setIds(
-                        ids.includes(group.id)
-                          ? ids.filter((id) => id !== group.id)
-                          : [...ids, group.id]
+                        isSelected(ids, group)
+                          ? ids.filter(
+                              (id) => id !== `${group.id}|${group.name}`
+                            )
+                          : [...ids, `${group.id}|${group.name}`]
                       )
                     }
                     className="btn btn-primary"
                   >
-                    {ids.includes(group.id) ? "Remove" : "Add"}
+                    {isSelected(ids, group) ? "Remove" : "Add"}
                   </button>
                 </div>
               </div>

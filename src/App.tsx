@@ -1,5 +1,5 @@
 import { DevTool } from "@hookform/devtools";
-import { Provider } from "jotai";
+import { Provider, useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useForm } from "react-hook-form";
@@ -28,6 +28,7 @@ import {
 
 import { FbGroups } from "./components/FbGroups";
 import { FbPages } from "./components/FbPages";
+import { selectedFacebookIdsAtom } from "./store";
 import logger from "./utils/logger";
 
 const queryClient = new QueryClient({
@@ -58,6 +59,7 @@ const NoteViewer = () => {
   const [accessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
+  const [ids] = useAtom(selectedFacebookIdsAtom);
 
   return (
     <div className="flex flex-col mx-auto px-4 py-8">
@@ -84,6 +86,22 @@ const NoteViewer = () => {
             </ToolbarPlugin>
           </Editor>
         </EditorComposer>
+        {/* Show the selected page/group and submit button */}
+        {ids.length > 0 && (
+          <div className="flex flex-col items-center justify-center">
+            {ids.map((id) => (
+              <a
+                className="link link-accent"
+                href={"https://facebook.com/" + id.split("|")[0]}
+                target="_blank"
+                key={id}
+              >
+                <h2 className="card-title">{id}</h2>
+              </a>
+            ))}
+            <button className="btn">Publish</button>
+          </div>
+        )}
       </div>
       <div className="tabs">
         <a
