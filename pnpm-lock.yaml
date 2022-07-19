@@ -14,7 +14,7 @@ specifiers:
   '@typescript-eslint/parser': 5.30.6
   '@vitejs/plugin-react': 2.0.0
   autoprefixer: 10.4.7
-  c8: 7.11.3
+  c8: 7.12.0
   daisyui: 2.19.0
   eslint: 8.20.0
   eslint-config-productsway: 0.1.15
@@ -66,7 +66,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.30.6_eslint@8.20.0+typescript@4.7.4
   '@vitejs/plugin-react': 2.0.0_vite@3.0.0
   autoprefixer: 10.4.7_postcss@8.4.14
-  c8: 7.11.3
+  c8: 7.12.0
   eslint: 8.20.0
   eslint-config-productsway: 0.1.15_0b09e46c1c053a238d46994ccfedbf04
   happy-dom: 6.0.4
@@ -80,7 +80,7 @@ devDependencies:
   tsx: 3.8.0
   typescript: 4.7.4
   vite: 3.0.0
-  vitest: 0.18.1_c8@7.11.3+happy-dom@6.0.4
+  vitest: 0.18.1_c8@7.12.0+happy-dom@6.0.4
 
 packages:
 
@@ -1617,8 +1617,8 @@ packages:
     dev: false
     optional: true
 
-  /c8/7.11.3:
-    resolution: {integrity: sha512-6YBmsaNmqRm9OS3ZbIiL2EZgi1+Xc4O24jL3vMYGE6idixYuGdy76rIfIdltSKDj9DpLNrcXSonUTR1miBD0wA==}
+  /c8/7.12.0:
+    resolution: {integrity: sha512-CtgQrHOkyxr5koX1wEUmN/5cfDa2ckbHRA4Gy5LAL0zaCFtVWJS5++n+w4/sr2GWGerBxgTjpKeDclk/Qk6W/A==}
     engines: {node: '>=10.12.0'}
     hasBin: true
     dependencies:
@@ -4783,7 +4783,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.18.1_c8@7.11.3+happy-dom@6.0.4:
+  /vitest/0.18.1_c8@7.12.0+happy-dom@6.0.4:
     resolution: {integrity: sha512-4F/1K/Vn4AvJwe7i2YblR02PT5vMKcw9KN4unDq2KD0YcSxX0B/6D6Qu9PJaXwVuxXMFTQ5ovd4+CQaW3bwofA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -4808,7 +4808,7 @@ packages:
       '@types/chai': 4.3.1
       '@types/chai-subset': 1.3.3
       '@types/node': 18.0.3
-      c8: 7.11.3
+      c8: 7.12.0
       chai: 4.3.6
       debug: 4.3.4
       happy-dom: 6.0.4
