@@ -20,7 +20,7 @@ specifiers:
   eslint-config-productsway: 0.1.15
   happy-dom: 6.0.4
   husky: 8.0.1
-  jotai: 1.7.5
+  jotai: 1.7.6
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
   pino: 8.1.0
@@ -45,7 +45,7 @@ dependencies:
   '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.6
   '@tauri-apps/api': 1.0.2
   daisyui: 2.19.0_a191cbaa25c4a0a9f05cc78eac153be7
-  jotai: 1.7.5_6171ea764f204acd0ecf44d3255db83e
+  jotai: 1.7.6_6171ea764f204acd0ecf44d3255db83e
   pino: 8.1.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3131,8 +3131,8 @@ packages:
     resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
     dev: true
 
-  /jotai/1.7.5_6171ea764f204acd0ecf44d3255db83e:
-    resolution: {integrity: sha512-EpawdHUOQmiKDoKRaFkO0L7R7YAFYBylK6M9IivMUPUpiHnXnt5e80AlqHvMUwg4p8BcQewh2JLWGQqFhtjpEA==}
+  /jotai/1.7.6_6171ea764f204acd0ecf44d3255db83e:
+    resolution: {integrity: sha512-D3R5f6OvwUPUyTPQY3wGP800nb6bDEOl/mqftjxg3gcHVITeFcldr9W9IBK+gXsow357vhNXuci/LfD+rl92PA==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'
