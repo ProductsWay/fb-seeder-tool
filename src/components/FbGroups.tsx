@@ -1,6 +1,6 @@
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { useAtom } from "jotai";
 import React from "react";
-import { useInfiniteQuery } from "react-query";
 
 import {
   favoriteFacebookIdsAtom,
@@ -33,14 +33,14 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
 
   if (status === "loading" || isLoading)
     return (
-      <div className="justify-center h-screen items-center flex mx-auto">
+      <div className="justify-center items-center h-12 flex mx-auto">
         <progress className="progress w-56"></progress>
       </div>
     );
 
   if (error)
     return (
-      <div className="justify-center h-screen items-center flex mx-auto">
+      <div className="justify-center items-center h-12 flex mx-auto">
         <p>{`An error has occurred: ${(error as Error).message}`}</p>
       </div>
     );
@@ -48,9 +48,9 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
   return (
     <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
       {/* Show all pages */}
-      {(data?.pages ?? []).map((currentGroup, index) => (
+      {(data?.pages ?? [])?.map((currentGroup, index) => (
         <React.Fragment key={index}>
-          {currentGroup.groups.map((group) => (
+          {currentGroup.groups?.map((group) => (
             <div
               key={group.id}
               className={

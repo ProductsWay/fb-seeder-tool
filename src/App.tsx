@@ -1,11 +1,11 @@
 import { DevTool } from "@hookform/devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useQueryErrorResetBoundary } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider, useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useForm } from "react-hook-form";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { useQueryErrorResetBoundary } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 import useLocalStorageState from "use-local-storage-state";
 import {
   AlignDropdown,
@@ -89,7 +89,7 @@ const NoteViewer = () => {
         {/* Show the selected page/group and submit button */}
         {ids.length > 0 && (
           <div className="flex flex-col items-center justify-center">
-            {ids.map((id) => (
+            {ids?.map((id) => (
               <a
                 className="link link-accent"
                 href={"https://facebook.com/" + id.split("|")[0]}

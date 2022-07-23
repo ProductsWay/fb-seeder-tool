@@ -37,6 +37,7 @@ ni
 ## Usage
 
 ```sh
+# enable log on developement: RUST_LOG=info nr tauri dev
 nr tauri dev
 ```
 

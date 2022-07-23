@@ -1,6 +1,6 @@
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { useAtom } from "jotai";
 import React from "react";
-import { useInfiniteQuery } from "react-query";
 
 import { isSelected, selectedFacebookIdsAtom } from "../store";
 import { getFacebookPages } from "../utils/api";
@@ -27,14 +27,14 @@ export const FbPages = ({ accessToken }: { accessToken: string }) => {
 
   if (status === "loading" || isLoading)
     return (
-      <div className="justify-center h-screen items-center flex mx-auto">
+      <div className="justify-center items-center h-12 flex mx-auto">
         <progress className="progress w-56"></progress>
       </div>
     );
 
   if (error)
     return (
-      <div className="justify-center h-screen items-center flex mx-auto">
+      <div className="justify-center items-center h-12 flex mx-auto">
         <p>{`An error has occurred: ${(error as Error).message}`}</p>
       </div>
     );
@@ -42,9 +42,9 @@ export const FbPages = ({ accessToken }: { accessToken: string }) => {
   return (
     <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
       {/* Show all pages */}
-      {(data?.pages ?? []).map((currentGroup, index) => (
+      {(data?.pages ?? [])?.map((currentGroup, index) => (
         <React.Fragment key={index}>
-          {currentGroup.pages.map((page) => (
+          {currentGroup.pages?.map((page) => (
             <div
               key={page.id}
               className="mx-auto card card-side w-full h-44 bg-base-100 shadow-xl"

@@ -2,21 +2,45 @@
 use serde::{Deserialize, Serialize};
 extern crate serde_json;
 
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Error {
+    #[serde(rename = "message")]
+    message: Option<String>,
+
+    #[serde(rename = "type")]
+    error_type: Option<String>,
+
+    #[serde(rename = "code")]
+    code: Option<i64>,
+
+    #[serde(rename = "error_subcode")]
+    error_subcode: Option<i64>,
+
+    #[serde(rename = "fbtrace_id")]
+    fbtrace_id: Option<String>,
+}
+
 #[derive(Serialize, Deserialize)]
 pub struct FacebookGroups {
     #[serde(rename = "data")]
-    data: Vec<GroupDatum>,
+    data: Option<Vec<GroupDatum>>,
 
     #[serde(rename = "paging")]
     paging: Option<Paging>,
+
+    #[serde(rename = "error")]
+    error: Option<Error>,
 }
 #[derive(Serialize, Deserialize)]
 pub struct FacebookPages {
     #[serde(rename = "data")]
-    data: Vec<PageDatum>,
+    data: Option<Vec<PageDatum>>,
 
     #[serde(rename = "paging")]
     paging: Option<Paging>,
+
+    #[serde(rename = "error")]
+    error: Option<Error>,
 }
 
 #[derive(Serialize, Deserialize)]

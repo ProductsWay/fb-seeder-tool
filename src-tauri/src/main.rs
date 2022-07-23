@@ -11,16 +11,16 @@ async fn my_fb_groups(
     token: &str,
     after: &str,
 ) -> Result<fb::FacebookGroups, Box<dyn std::error::Error>> {
-    let resp = reqwest::get(
-        format!(
+    let api_url = format!(
             "https://graph.facebook.com/v14.0/me/groups?fields=id,name,link,description,picture&access_token={}&after={}",
             token, after
-        )
-        .as_str(),
-    )
-    .await?
-    .json::<fb::FacebookGroups>()
-    .await?;
+        );
+    info!("api_url: {}", api_url);
+
+    let resp = reqwest::get(api_url)
+        .await?
+        .json::<fb::FacebookGroups>()
+        .await?;
 
     Ok(resp)
 }
@@ -30,16 +30,16 @@ async fn my_fb_pages(
     token: &str,
     after: &str,
 ) -> Result<fb::FacebookPages, Box<dyn std::error::Error>> {
-    let resp = reqwest::get(
-        format!(
-            "https://graph.facebook.com/v14.0/me/accounts?fields=page_token&access_token={}&after={}",
-            token, after
-        )
-        .as_str(),
-    )
-    .await?
-    .json::<fb::FacebookPages>()
-    .await?;
+    let api_url = format!(
+        "https://graph.facebook.com/v14.0/me/accounts?fields=page_token&access_token={}&after={}",
+        token, after
+    );
+    info!("api_url: {}", api_url);
+
+    let resp = reqwest::get(api_url)
+        .await?
+        .json::<fb::FacebookPages>()
+        .await?;
 
     Ok(resp)
 }
