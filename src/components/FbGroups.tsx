@@ -94,6 +94,7 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
                 <a
                   className="link link-accent"
                   href={"https://facebook.com/" + group.id}
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   <h2 className="card-title">{group.name}</h2>

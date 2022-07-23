@@ -53,6 +53,7 @@ export const FbPages = ({ accessToken }: { accessToken: string }) => {
                 <a
                   className="link link-accent"
                   href={"https://facebook.com/" + page.id}
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   <h2 className="card-title">{page.page_token}</h2>

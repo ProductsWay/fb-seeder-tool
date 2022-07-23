@@ -93,6 +93,7 @@ const NoteViewer = () => {
               <a
                 className="link link-accent"
                 href={"https://facebook.com/" + id.split("|")[0]}
+                rel="noopener noreferrer"
                 target="_blank"
                 key={id}
               >
