@@ -21,7 +21,7 @@
     "@tanstack/react-query": "4.0.10",
     "@tanstack/react-query-devtools": "4.0.10",
     "@tauri-apps/api": "1.0.2",
-    "daisyui": "2.19.1",
+    "daisyui": "2.20.0",
     "jotai": "1.7.6",
     "pino": "8.3.0",
     "react": "18.2.0",
