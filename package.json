@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.23.4",
-    "@tauri-apps/cli": "1.0.4",
+    "@tauri-apps/cli": "1.0.5",
     "@testing-library/react": "13.3.0",
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@types/react": "18.0.15",
