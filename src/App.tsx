@@ -61,13 +61,17 @@ const NoteViewer = () => {
   });
   const [ids] = useAtom(selectedFacebookIdsAtom);
 
+  const onChange = (editorState: string) => {
+    logger.info(`onChange: ${editorState}`);
+  };
+
   return (
     <div className="flex flex-col mx-auto px-4 py-8">
       <div className="h-96 mx-auto">
+        {/* TODO: support get value from editor when verbum is ready */}
         <EditorComposer>
-          {/* TODO: support get value from editor when verbum is ready */}
-          <Editor hashtagsEnabled={true}>
-            <ToolbarPlugin defaultFontSize="2px">
+          <Editor hashtagsEnabled={true} onChange={onChange}>
+            <ToolbarPlugin defaultFontSize="20px">
               <FontFamilyDropdown />
               <FontSizeDropdown />
               <Divider />
