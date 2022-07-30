@@ -28,6 +28,7 @@ import {
 
 import { FbGroups } from "./components/FbGroups";
 import { FbPages } from "./components/FbPages";
+import SimpleEditor from "./components/SimpleEditor";
 import { selectedFacebookIdsAtom } from "./store";
 import logger from "./utils/logger";
 
@@ -65,31 +66,39 @@ const NoteViewer = () => {
     logger.info(`onChange: ${editorState}`);
   };
 
+  const isVerbumReady = false;
+
   return (
     <div className="flex flex-col mx-auto px-4 py-8">
       <div className="h-96 mx-auto">
         {/* TODO: support get value from editor when verbum is ready */}
-        <EditorComposer>
-          <Editor hashtagsEnabled={true} onChange={onChange}>
-            <ToolbarPlugin defaultFontSize="20px">
-              <FontFamilyDropdown />
-              <FontSizeDropdown />
-              <Divider />
-              <BoldButton />
-              <ItalicButton />
-              <UnderlineButton />
-              <CodeFormatButton />
-              <InsertLinkButton />
-              <TextColorPicker />
-              <BackgroundColorPicker />
-              <TextFormatDropdown />
-              <Divider />
-              <InsertDropdown enablePoll={true} />
-              <Divider />
-              <AlignDropdown />
-            </ToolbarPlugin>
-          </Editor>
-        </EditorComposer>
+        {isVerbumReady ? (
+          <EditorComposer>
+            <Editor hashtagsEnabled={true} onChange={onChange}>
+              <ToolbarPlugin defaultFontSize="20px">
+                <FontFamilyDropdown />
+                <FontSizeDropdown />
+                <Divider />
+                <BoldButton />
+                <ItalicButton />
+                <UnderlineButton />
+                <CodeFormatButton />
+                <InsertLinkButton />
+                <TextColorPicker />
+                <BackgroundColorPicker />
+                <TextFormatDropdown />
+                <Divider />
+                <InsertDropdown enablePoll={true} />
+                <Divider />
+                <AlignDropdown />
+              </ToolbarPlugin>
+            </Editor>
+          </EditorComposer>
+        ) : (
+          <SimpleEditor
+            onSubmitHandler={(formData) => onChange(formData.body)}
+          />
+        )}
         {/* Show the selected page/group and submit button */}
         {ids.length > 0 && (
           <div className="flex flex-col items-center justify-center">
