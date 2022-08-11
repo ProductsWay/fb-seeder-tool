@@ -1,6 +1,6 @@
 [package]
 name = "fb-seeder-tool"
-version = "0.1.0"
+version = "0.1.1"
 description = "Effortless Facebook Seeding Tool"
 authors = ["Dung Huynh Duc"]
 license = "MIT"
