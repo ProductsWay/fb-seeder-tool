@@ -176,6 +176,17 @@ function SettingForm({
         <div className="w-full form-control">
           <label className="label">
             <span className="label-text">Access Token</span>
+
+            <div className="tooltip" data-tip="Create a new access token">
+              <a
+                rel="noopener noreferrer"
+                className="btn btn-info"
+                target="_blank"
+                href="https://developers.facebook.com/tools/accesstoken/"
+              >
+                Generate
+              </a>
+            </div>
           </label>
           <textarea
             className="textarea textarea-bordered"
