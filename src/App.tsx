@@ -147,9 +147,8 @@ const NoteViewer = () => {
 };
 
 type FormValues = {
-  firstName: string;
-  lastName: string;
   accessToken: string;
+  tags: string;
 };
 
 function SettingForm({
@@ -161,18 +160,26 @@ function SettingForm({
   const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
+  const [list, setList] = useLocalStorageState("list", {
+    defaultValue: "",
+  });
   const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
 
   const token = watch("accessToken");
+  const tags = watch("tags");
 
   useEffect(() => {
     setAccessToken(token);
   }, [token]);
 
+  useEffect(() => {
+    setList(tags);
+  }, [tags]);
+
   return (
     <div className="justify-center h-64 items-center flex flex-col mx-auto">
       <DevTool control={control} placement={"top-right"} />
-      <form className="container max-w-md p-4" onSubmit={onSubmit}>
+      <form className="container max-w-md p-4 mt-4" onSubmit={onSubmit}>
         <div className="w-full form-control">
           <label className="label">
             <span className="label-text">Access Token</span>
@@ -193,6 +200,20 @@ function SettingForm({
             placeholder="Place your access token"
             defaultValue={accessToken}
             {...register("accessToken", {
+              required: true,
+            })}
+          />
+        </div>
+        <div className="w-full form-control">
+          <label className="label">
+            <span className="label-text">Tags</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Add your tag here, separate by comma"
+            className="input w-full"
+            defaultValue={list}
+            {...register("tags", {
               required: true,
             })}
           />
