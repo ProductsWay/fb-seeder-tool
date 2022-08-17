@@ -8,6 +8,7 @@ import {
   selectedFacebookIdsAtom,
 } from "../store";
 import { getFacebookGroup } from "../utils/api";
+import emitter from "../utils/emitter";
 
 export const FbGroups = ({ accessToken }: { accessToken: string }) => {
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
@@ -102,6 +103,14 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
 
                 <p className="text-clip overflow-hidden">{group.description}</p>
                 <div className="card-actions justify-end">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      emitter.emit("group", `${group.id}|${group.name}`);
+                    }}
+                  >
+                    Test
+                  </button>
                   <button
                     onClick={() =>
                       setIds(
