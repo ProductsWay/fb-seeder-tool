@@ -41,7 +41,7 @@ specifiers:
   tsx: 3.8.2
   typescript: 4.7.4
   use-local-storage-state: 18.1.1
-  verbum: 0.3.4
+  verbum: 0.3.5
   vite: 3.0.8
   vitest: 0.22.0
 
@@ -63,7 +63,7 @@ dependencies:
   react-error-boundary: 3.1.4_react@18.2.0
   react-hook-form: 7.34.2_react@18.2.0
   use-local-storage-state: 18.1.1_biqbaboplfbrettd7655fr4n2y
-  verbum: 0.3.4_biqbaboplfbrettd7655fr4n2y
+  verbum: 0.3.5_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
   '@playwright/test': 1.25.0
@@ -86,7 +86,7 @@ devDependencies:
   postcss: 8.4.16
   prettier: 2.7.1
   sort-package-json: 1.57.0
-  tailwindcss: 3.1.8
+  tailwindcss: 3.1.8_postcss@8.4.16
   tsx: 3.8.2
   typescript: 4.7.4
   vite: 3.0.8
@@ -1265,7 +1265,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: false
 
   /@tanstack/match-sorter-utils/8.1.1:
@@ -2216,7 +2216,7 @@ packages:
       css-selector-tokenizer: 0.8.0
       postcss: 8.4.16
       postcss-js: 4.0.0_postcss@8.4.16
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
     transitivePeerDependencies:
       - ts-node
     dev: false
@@ -4886,10 +4886,12 @@ packages:
       get-port: 3.2.0
     dev: true
 
-  /tailwindcss/3.1.8:
+  /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -5168,8 +5170,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /verbum/0.3.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-IcHMOFf+46YUUpj1vVNXecHXCck925qnZmm59PGpiAqkElmcdLZq/wSEmslGKrwtSv0imBr5OBCy5xyMWrjk7A==}
+  /verbum/0.3.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-//cqn+EUen53gihEkYuvQ3gXXjG4CK+TswuHcpjw2efakEGHhOy9wCix8HEiiRrPrFLk7n9LVKo4CkCxuvw47w==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^18.1.0
