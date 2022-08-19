@@ -29,7 +29,7 @@ specifiers:
   mitt: ^3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
-  pino: 8.4.1
+  pino: 8.4.2
   postcss: 8.4.16
   prettier: 2.7.1
   react: 18.2.0
@@ -57,7 +57,7 @@ dependencies:
   daisyui: 2.24.0_25hquoklqeoqwmt7fwvvcyxm5e
   jotai: 1.7.8_byq7oc57qftat37gkdlgphtura
   mitt: 3.0.0
-  pino: 8.4.1
+  pino: 8.4.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-error-boundary: 3.1.4_react@18.2.0
@@ -86,7 +86,7 @@ devDependencies:
   postcss: 8.4.16
   prettier: 2.7.1
   sort-package-json: 1.57.0
-  tailwindcss: 3.1.8
+  tailwindcss: 3.1.8_postcss@8.4.16
   tsx: 3.8.2
   typescript: 4.7.4
   vite: 3.0.8
@@ -1265,7 +1265,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: false
 
   /@tanstack/match-sorter-utils/8.1.1:
@@ -2216,7 +2216,7 @@ packages:
       css-selector-tokenizer: 0.8.0
       postcss: 8.4.16
       postcss-js: 4.0.0_postcss@8.4.16
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
     transitivePeerDependencies:
       - ts-node
     dev: false
@@ -4213,8 +4213,8 @@ packages:
     resolution: {integrity: sha512-mMMOwSKrmyl+Y12Ri2xhH1lbzQxwwpuru9VjyJpgFIH4asSj88F2csdMwN6+M5g1Ll4rmsYghHLQJw81tgZ7LQ==}
     dev: false
 
-  /pino/8.4.1:
-    resolution: {integrity: sha512-rZnbTUNFiYBH1H2OfYYVNBEFRDhN2nRaEmBD2+MDmGXSGyps+YPJ55LzWZP90zg7zyWKy0ZMqGlk47AO6OaBqQ==}
+  /pino/8.4.2:
+    resolution: {integrity: sha512-PlXDeGhJZfAuVay+wtlS02s5j8uisQveZExYdAm9MwwxUQSz9R7Q78XtjM2tTa4sa5KJmygimZjZxXXuHgV6ew==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0
@@ -4886,10 +4886,12 @@ packages:
       get-port: 3.2.0
     dev: true
 
-  /tailwindcss/3.1.8:
+  /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
