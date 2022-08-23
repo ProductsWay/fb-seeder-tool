@@ -5,7 +5,7 @@ specifiers:
   '@mantine/core': 5.2.0
   '@mantine/hooks': 5.2.0
   '@mantine/rte': 5.2.0
-  '@playwright/test': 1.25.0
+  '@playwright/test': 1.25.1
   '@tailwindcss/typography': 0.5.4
   '@tanstack/react-query': 4.2.1
   '@tanstack/react-query-devtools': 4.2.1
@@ -66,7 +66,7 @@ dependencies:
   verbum: 0.3.5_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
-  '@playwright/test': 1.25.0
+  '@playwright/test': 1.25.1
   '@tauri-apps/cli': 1.0.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@trivago/prettier-plugin-sort-imports': 3.3.0_prettier@2.7.1
@@ -1121,13 +1121,13 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
-  /@playwright/test/1.25.0:
-    resolution: {integrity: sha512-j4EZhTTQI3dBeWblE21EV//swwmBtOpIrLdOIJIRv4uqsLdHgBg1z+JtTg+AeC5o2bAXIE26kDNW5A0TimG8Bg==}
+  /@playwright/test/1.25.1:
+    resolution: {integrity: sha512-IJ4X0yOakXtwkhbnNzKkaIgXe6df7u3H3FnuhI9Jqh+CdO0e/lYQlDLYiyI9cnXK8E7UAppAWP+VqAv6VX7HQg==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.0.3
-      playwright-core: 1.25.0
+      playwright-core: 1.25.1
     dev: true
 
   /@radix-ui/number/1.0.0:
@@ -4235,8 +4235,8 @@ packages:
       thread-stream: 2.0.0
     dev: false
 
-  /playwright-core/1.25.0:
-    resolution: {integrity: sha512-kZ3Jwaf3wlu0GgU0nB8UMQ+mXFTqBIFz9h1svTlNduNKjnbPXFxw7mJanLVjqxHJRn62uBfmgBj93YHidk2N5Q==}
+  /playwright-core/1.25.1:
+    resolution: {integrity: sha512-lSvPCmA2n7LawD2Hw7gSCLScZ+vYRkhU8xH0AapMyzwN+ojoDqhkH/KIEUxwNu2PjPoE/fcE0wLAksdOhJ2O5g==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
