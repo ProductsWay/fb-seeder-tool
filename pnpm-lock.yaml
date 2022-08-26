@@ -8,7 +8,7 @@ specifiers:
   '@playwright/test': 1.25.0
   '@tailwindcss/typography': 0.5.4
   '@tanstack/react-query': 4.2.1
-  '@tanstack/react-query-devtools': 4.2.1
+  '@tanstack/react-query-devtools': 4.2.3
   '@tauri-apps/api': 1.0.2
   '@tauri-apps/cli': 1.0.5
   '@testing-library/react': 13.3.0
@@ -52,7 +52,7 @@ dependencies:
   '@mantine/rte': 5.2.0_ezbgt6i2ygqfucqyyjrcxmsr4m
   '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.8
   '@tanstack/react-query': 4.2.1_biqbaboplfbrettd7655fr4n2y
-  '@tanstack/react-query-devtools': 4.2.1_32b63s5o6uo6n4n6pi5xgs6jfq
+  '@tanstack/react-query-devtools': 4.2.3_32b63s5o6uo6n4n6pi5xgs6jfq
   '@tauri-apps/api': 1.0.2
   daisyui: 2.24.0_25hquoklqeoqwmt7fwvvcyxm5e
   jotai: 1.8.0_byq7oc57qftat37gkdlgphtura
@@ -1279,10 +1279,10 @@ packages:
     resolution: {integrity: sha512-9LsABpZXkWZHi4P1ozRETEDXQocLAxVzQaIhganxbNuz/uA3PsCAJxJTiQrknG5htLMzOF5MqM9G10e6DCxV1A==}
     dev: false
 
-  /@tanstack/react-query-devtools/4.2.1_32b63s5o6uo6n4n6pi5xgs6jfq:
-    resolution: {integrity: sha512-k7Ch3qvs8U74aRMMRvNisxcxZFTzk8FDdvpQKXxSZ8fsD4ZwpM0MoUSqKsCXbfTvUI7MJiGxavy1YlvImPNO+Q==}
+  /@tanstack/react-query-devtools/4.2.3_32b63s5o6uo6n4n6pi5xgs6jfq:
+    resolution: {integrity: sha512-0PH8n824BnFyMrtv7q5uLS0b7jYg2tDH8vU4etkSYzV1uL4RJjiqMh7Gyi8qhYCwM+khlrkRYlNZvE0cxlp3SQ==}
     peerDependencies:
-      '@tanstack/react-query': ^4.0.0
+      '@tanstack/react-query': 4.2.3
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
