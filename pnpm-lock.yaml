@@ -26,7 +26,7 @@ specifiers:
   happy-dom: 6.0.4
   husky: 8.0.1
   jotai: 1.8.1
-  mitt: ^3.0.0
+  mitt: 3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
   pino: 8.4.2
