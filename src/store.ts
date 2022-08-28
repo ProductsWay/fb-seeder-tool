@@ -1,8 +1,5 @@
 import { atom } from "jotai";
 
-import emitter from "./utils/emitter";
-import logger from "./utils/logger";
-
 type FacebookId = number;
 type FacebookName = string;
 type FacebookEntity = `${FacebookId}|${FacebookName}`;
@@ -19,12 +16,3 @@ export const isSelected = (
     (selectedEntity) => selectedEntity.split("|")[0] === entity.id.toString()
   );
 };
-
-// TODO: refactor to handle the pub-sub event
-emitter.on("page", (page) => {
-  logger.info(`page`, page);
-});
-
-emitter.on("group", (group) => {
-  logger.info(`group`, group);
-});

@@ -4,7 +4,6 @@ import React from "react";
 
 import { isSelected, selectedFacebookIdsAtom } from "../store";
 import { getFacebookPages } from "../utils/api";
-import emitter from "../utils/emitter";
 
 export const FbPages = ({ accessToken }: { accessToken: string }) => {
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
@@ -60,14 +59,6 @@ export const FbPages = ({ accessToken }: { accessToken: string }) => {
                   <h2 className="card-title">{page.page_token}</h2>
                 </a>
                 <div className="card-actions justify-end">
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => {
-                      emitter.emit("page", `${page.id}|${page.page_token}`);
-                    }}
-                  >
-                    Test
-                  </button>
                   <button
                     onClick={() =>
                       setIds(
