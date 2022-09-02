@@ -20,7 +20,7 @@
     "@mantine/core": "5.2.4",
     "@mantine/hooks": "5.2.4",
     "@mantine/rte": "5.2.4",
-    "@tailwindcss/typography": "0.5.4",
+    "@tailwindcss/typography": "0.5.7",
     "@tanstack/react-query": "4.2.3",
     "@tanstack/react-query-devtools": "4.2.3",
     "@tauri-apps/api": "1.0.2",
