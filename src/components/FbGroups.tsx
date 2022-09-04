@@ -102,20 +102,43 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
 
                 <p className="text-clip overflow-hidden">{group.description}</p>
                 <div className="card-actions justify-end">
-                  <button
-                    onClick={() =>
-                      setIds(
-                        isSelected(ids, group)
-                          ? ids.filter(
-                              (id) => id !== `${group.id}|${group.name}`
-                            )
-                          : [...ids, `${group.id}|${group.name}`]
-                      )
-                    }
-                    className="btn btn-primary"
-                  >
-                    {isSelected(ids, group) ? "Remove" : "Add"}
-                  </button>
+                  <div className="flex justify-end flex-1 px-2">
+                    <div className="flex items-stretch">
+                      <a
+                        onClick={() =>
+                          setIds(
+                            isSelected(ids, group)
+                              ? ids.filter(
+                                  (id) => id !== `${group.id}|${group.name}`
+                                )
+                              : [...ids, `${group.id}|${group.name}`]
+                          )
+                        }
+                        className="btn btn-ghost rounded-btn"
+                      >
+                        {isSelected(ids, group) ? "Remove" : "Add"}
+                      </a>
+                      <div className="dropdown dropdown-top dropdown-end">
+                        <label
+                          tabIndex={0}
+                          className="btn btn-ghost rounded-btn"
+                        >
+                          Dropdown
+                        </label>
+                        <ul
+                          tabIndex={0}
+                          className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
+                        >
+                          <li>
+                            <a>Item 1</a>
+                          </li>
+                          <li>
+                            <a>Item 2</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
