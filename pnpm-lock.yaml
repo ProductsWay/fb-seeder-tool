@@ -29,7 +29,7 @@ specifiers:
   mitt: 3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
-  pino: 8.4.2
+  pino: 8.5.0
   postcss: 8.4.16
   prettier: 2.7.1
   react: 18.2.0
@@ -57,7 +57,7 @@ dependencies:
   daisyui: 2.24.0_25hquoklqeoqwmt7fwvvcyxm5e
   jotai: 1.8.2_byq7oc57qftat37gkdlgphtura
   mitt: 3.0.0
-  pino: 8.4.2
+  pino: 8.5.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-error-boundary: 3.1.4_react@18.2.0
@@ -4225,8 +4225,8 @@ packages:
     resolution: {integrity: sha512-mMMOwSKrmyl+Y12Ri2xhH1lbzQxwwpuru9VjyJpgFIH4asSj88F2csdMwN6+M5g1Ll4rmsYghHLQJw81tgZ7LQ==}
     dev: false
 
-  /pino/8.4.2:
-    resolution: {integrity: sha512-PlXDeGhJZfAuVay+wtlS02s5j8uisQveZExYdAm9MwwxUQSz9R7Q78XtjM2tTa4sa5KJmygimZjZxXXuHgV6ew==}
+  /pino/8.5.0:
+    resolution: {integrity: sha512-PuD6sOti8Y+p9zRoNB5dibmfjfM/OU2tEtJFICxw5ulXi1d0qnq/Rt3CsR6aBEAOeyCXP+ZUfiNWW+tt55pNzg==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0
