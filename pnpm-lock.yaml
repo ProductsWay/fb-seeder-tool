@@ -25,7 +25,7 @@ specifiers:
   eslint-config-productsway: 0.1.15
   happy-dom: 6.0.4
   husky: 8.0.1
-  jotai: 1.8.2
+  jotai: 1.8.3
   mitt: 3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
@@ -55,7 +55,7 @@ dependencies:
   '@tanstack/react-query-devtools': 4.2.3_7jugwuuqrrr4f74u7dtzjsintq
   '@tauri-apps/api': 1.0.2
   daisyui: 2.24.0_25hquoklqeoqwmt7fwvvcyxm5e
-  jotai: 1.8.2_byq7oc57qftat37gkdlgphtura
+  jotai: 1.8.3_byq7oc57qftat37gkdlgphtura
   mitt: 3.0.0
   pino: 8.4.2
   react: 18.2.0
@@ -3537,8 +3537,8 @@ packages:
     resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
     dev: true
 
-  /jotai/1.8.2_byq7oc57qftat37gkdlgphtura:
-    resolution: {integrity: sha512-jRKTQKChLAJGB3zG5zklJoMtpWYixUi2jK3pZd5ZRpH4pQnjYYEOAVYCzZGr4Ce5Uj7j0ffYoLM4ULAAQXUoGw==}
+  /jotai/1.8.3_byq7oc57qftat37gkdlgphtura:
+    resolution: {integrity: sha512-bNAs/DMD6BEB4xxVku33CI+ZIFyCWG82Ms6JnvYunEvGCnviTTDBl+m0HKgijoHmcNM3fxQ5MARdG+wwokNxog==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'
