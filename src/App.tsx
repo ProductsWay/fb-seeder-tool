@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider, useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import useLocalStorageState from "use-local-storage-state";
 import {
   AlignDropdown,
@@ -29,6 +29,7 @@ import {
 import { FbGroups } from "./components/FbGroups";
 import { FbPages } from "./components/FbPages";
 import SimpleEditor from "./components/SimpleEditor";
+import Tags from "./components/Tags";
 import { selectedFacebookIdsAtom } from "./store";
 import logger from "./utils/logger";
 
@@ -156,12 +157,18 @@ function SettingForm({
 }: {
   onSubmitHandler: (data: FormValues) => void;
 }) {
-  const { register, handleSubmit, control, watch } = useForm<FormValues>();
   const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
   const [list, setList] = useLocalStorageState("list", {
     defaultValue: "",
+  });
+
+  const { register, handleSubmit, control, watch } = useForm<FormValues>({
+    defaultValues: {
+      accessToken,
+      tags: list,
+    },
   });
   const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
 
@@ -205,17 +212,11 @@ function SettingForm({
           />
         </div>
         <div className="w-full form-control">
-          <label className="label">
-            <span className="label-text">Tags</span>
-          </label>
-          <input
-            type="text"
-            placeholder="Add your tag here, separate by comma"
-            className="input w-full"
-            defaultValue={list}
-            {...register("tags", {
-              required: true,
-            })}
+          <Controller
+            name="tags"
+            control={control}
+            defaultValue={tags}
+            render={({ field }) => <Tags {...field} />}
           />
         </div>
 
