@@ -8,6 +8,7 @@ import {
   selectedFacebookIdsAtom,
 } from "../store";
 import { getFacebookGroup } from "../utils/api";
+import AssignTag from "./AssignTag";
 
 export const FbGroups = ({ accessToken }: { accessToken: string }) => {
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
@@ -118,25 +119,7 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
                       >
                         {isSelected(ids, group) ? "Remove" : "Add"}
                       </a>
-                      <div className="dropdown dropdown-top dropdown-end">
-                        <label
-                          tabIndex={0}
-                          className="btn btn-ghost rounded-btn"
-                        >
-                          Dropdown
-                        </label>
-                        <ul
-                          tabIndex={0}
-                          className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
-                        >
-                          <li>
-                            <a>Item 1</a>
-                          </li>
-                          <li>
-                            <a>Item 2</a>
-                          </li>
-                        </ul>
-                      </div>
+                      <AssignTag />
                     </div>
                   </div>
                 </div>
