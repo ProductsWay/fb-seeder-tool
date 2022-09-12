@@ -1,7 +1,13 @@
 import { invoke } from "@tauri-apps/api";
 
+import logger from "./logger";
+
 export async function getFacebookPages(token: string, after = "") {
-  const response = await invoke<string>("fb_pages", { token, after });
+  logger.info("get facebook pages", { token, after });
+  const response = await invoke<string>("fb_pages", {
+    token,
+    after: after || "",
+  });
   const { data = [], paging, error } = JSON.parse(response);
 
   if (error) {
@@ -18,7 +24,11 @@ export async function getFacebookPages(token: string, after = "") {
 }
 
 export async function getFacebookGroup(token: string, after = "") {
-  const response = await invoke<string>("fb_groups", { token, after });
+  logger.info("get facebook group", { token, after });
+  const response = await invoke<string>("fb_groups", {
+    token,
+    after: after || "",
+  });
   const { data = [], paging, error } = JSON.parse(response);
 
   if (error) {

@@ -1,7 +1,10 @@
 import { DevTool } from "@hookform/devtools";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
+import { QueryClient } from "@tanstack/react-query";
 import { useQueryErrorResetBoundary } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { Provider, useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
@@ -33,13 +36,15 @@ import Tags from "./components/Tags";
 import { selectedFacebookIdsAtom } from "./store";
 import logger from "./utils/logger";
 
+const asyncStoragePersister = createAsyncStoragePersister({
+  storage: AsyncStorage,
+});
+
+const aWeek = 1000 * 60 * 60 * 24 * 7;
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // refer https://react-query.tanstack.com/guides/window-focus-refetching
-      refetchOnWindowFocus: false,
-      // cacheTime: 1000 * 60 * 60 * 24, // 24 hours, refer https://tanstack.com/query/v4/docs/plugins/persistQueryClient
-      // suspense: true, // refer https://tanstack.com/query/v4/docs/guides/suspense
+      cacheTime: aWeek,
     },
   },
   // custom logger https://tanstack.com/query/v4/docs/guides/custom-logger
@@ -251,7 +256,10 @@ function App() {
   const [route, setRoute] = useState<"main" | "form" | "editor">("main");
   return (
     <Provider>
-      <QueryClientProvider client={queryClient}>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{ persister: asyncStoragePersister }}
+      >
         <ErrorBoundary
           onReset={reset}
           fallbackRender={({ resetErrorBoundary }) => (
@@ -344,7 +352,7 @@ function App() {
             <ReactQueryDevtools initialIsOpen={false} />
           </div>
         </ErrorBoundary>
-      </QueryClientProvider>
+      </PersistQueryClientProvider>
     </Provider>
   );
 }

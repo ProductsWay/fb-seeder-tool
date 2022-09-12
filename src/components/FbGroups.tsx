@@ -42,7 +42,7 @@ export const FbGroups = ({ accessToken }: { accessToken: string }) => {
   if (error)
     return (
       <div className="justify-center items-center h-12 flex mx-auto">
-        <p>{`An error has occurred: ${(error as Error).message}`}</p>
+        <pre>An error has occurred: {JSON.stringify(error, null, 2)}</pre>
       </div>
     );
 
