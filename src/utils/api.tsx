@@ -8,10 +8,11 @@ export async function getFacebookPages(token: string, after = "") {
     token,
     after: after || "",
   });
+  logger.info("get facebook pages response", response);
   const { data = [], paging, error } = JSON.parse(response);
 
   if (error) {
-    throw new Error(error.message);
+    return Promise.reject(error);
   }
 
   return {
@@ -29,10 +30,11 @@ export async function getFacebookGroup(token: string, after = "") {
     token,
     after: after || "",
   });
+  logger.info("get facebook group response", response);
   const { data = [], paging, error } = JSON.parse(response);
 
   if (error) {
-    throw new Error(error.message);
+    return Promise.reject(error);
   }
 
   return {
