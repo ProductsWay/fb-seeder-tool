@@ -28,7 +28,7 @@ specifiers:
   eslint-config-productsway: 0.1.16
   happy-dom: 6.0.4
   husky: 8.0.1
-  jotai: 1.8.3
+  jotai: 1.8.4
   mitt: 3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
@@ -61,7 +61,7 @@ dependencies:
   '@tanstack/react-query-persist-client': 4.3.8_utiizo4bytfhrbqzrc5xbeevzu
   '@tauri-apps/api': 1.1.0
   daisyui: 2.28.0_6b4luod745iryv24jvdbvzbbsa
-  jotai: 1.8.3_bovw7bdm674gyizcxfl2kh5qua
+  jotai: 1.8.4_bovw7bdm674gyizcxfl2kh5qua
   mitt: 3.0.0
   pino: 8.5.0
   react: 18.2.0
@@ -6102,8 +6102,8 @@ packages:
       '@sideway/pinpoint': 2.0.0
     dev: false
 
-  /jotai/1.8.3_bovw7bdm674gyizcxfl2kh5qua:
-    resolution: {integrity: sha512-bNAs/DMD6BEB4xxVku33CI+ZIFyCWG82Ms6JnvYunEvGCnviTTDBl+m0HKgijoHmcNM3fxQ5MARdG+wwokNxog==}
+  /jotai/1.8.4_bovw7bdm674gyizcxfl2kh5qua:
+    resolution: {integrity: sha512-bkHDHNxm7bU4+bJL4z96fTlJYN34UDRTu3ghEajJrDepayON9YEaxPrXr7xhLnIRntoFC6eDYYhMNA/ilbj2RQ==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'
