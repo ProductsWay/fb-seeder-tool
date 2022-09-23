@@ -60,7 +60,7 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
               <img src={group.picture?.data?.url} alt={group.name} />
             </figure>
           )}
-          <div className="card-body">
+          <div className="card-body text-center items-center">
             <a
               className="link link-accent"
               href={"https://facebook.com/" + group.id}

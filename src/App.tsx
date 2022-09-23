@@ -32,6 +32,7 @@ import {
 import { FbGroups } from "./components/FbGroups";
 import { FbPages } from "./components/FbPages";
 import SimpleEditor from "./components/SimpleEditor";
+import { Stats } from "./components/Stats";
 import Tags from "./components/Tags";
 import { selectedFacebookIdsAtom } from "./store";
 import {
@@ -85,7 +86,8 @@ const NoteViewer = () => {
 
   return (
     <div className="flex flex-col mx-auto px-4 py-8">
-      <div className="mx-auto">
+      <div className="mx-auto flex flex-row px-4 py-8 gap-2">
+        <Stats totalGroups={groups.length} totalPages={pages.length} />
         {/* TODO: support get value from editor when verbum is ready */}
         {isVerbumReadyYet ? (
           <EditorComposer>

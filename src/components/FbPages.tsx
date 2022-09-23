@@ -14,11 +14,8 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
     <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
       {/* Show all pages */}
       {pages.map((page) => (
-        <div
-          key={page.id}
-          className="mx-auto card card-side w-full h-44 bg-base-100 shadow-xl"
-        >
-          <div className="card-body">
+        <div key={page.id} className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body items-center text-center">
             <a
               className="link link-accent"
               href={"https://facebook.com/" + page.id}
@@ -27,7 +24,7 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
             >
               <h2 className="card-title">{page.page_token}</h2>
             </a>
-            <div className="card-actions justify-end">
+            <div className="card-actions">
               <button
                 onClick={() =>
                   setIds(
