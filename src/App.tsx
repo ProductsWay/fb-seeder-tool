@@ -6,6 +6,7 @@ import { useQueryErrorResetBoundary } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { Provider, useAtom } from "jotai";
+import React from "react";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Controller, useForm } from "react-hook-form";
@@ -34,7 +35,7 @@ import { FbPages } from "./components/FbPages";
 import SimpleEditor from "./components/SimpleEditor";
 import { Stats } from "./components/Stats";
 import Tags from "./components/Tags";
-import { selectedFacebookIdsAtom } from "./store";
+import { isSelected, selectedFacebookIdsAtom } from "./store";
 import {
   FacebookGroupItem,
   FacebookPageItem,
@@ -70,7 +71,7 @@ const queryClient = new QueryClient({
 
 const NoteViewer = () => {
   const [tab, setTab] = useState<"group" | "page">("group");
-  const [ids] = useAtom(selectedFacebookIdsAtom);
+  const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
   const [pages] = useLocalStorageState("pages", {
     defaultValue: [],
   });
@@ -88,52 +89,86 @@ const NoteViewer = () => {
     <div className="mx-auto flex flex-col px-4 py-8">
       <div className="mx-auto flex flex-row gap-2 px-4 py-8">
         <Stats totalGroups={groups.length} totalPages={pages.length} />
-        {/* TODO: support get value from editor when verbum is ready */}
-        {isVerbumReadyYet ? (
-          <EditorComposer>
-            <Editor hashtagsEnabled={true} onChange={onChange}>
-              <ToolbarPlugin defaultFontSize="20px">
-                <FontFamilyDropdown />
-                <FontSizeDropdown />
-                <Divider />
-                <BoldButton />
-                <ItalicButton />
-                <UnderlineButton />
-                <CodeFormatButton />
-                <InsertLinkButton />
-                <TextColorPicker />
-                <BackgroundColorPicker />
-                <TextFormatDropdown />
-                <Divider />
-                <InsertDropdown enablePoll={true} />
-                <Divider />
-                <AlignDropdown />
-              </ToolbarPlugin>
-            </Editor>
-          </EditorComposer>
-        ) : (
-          <SimpleEditor
-            onSubmitHandler={(formData) => onChange(formData.body)}
-            hasSelected={ids.length > 0}
-          />
-        )}
-        {/* Show the selected page/group and submit button */}
-        {ids.length > 0 && (
-          <div className="flex flex-col items-center justify-center">
-            {ids?.map((id) => (
-              <a
-                className="link link-accent"
-                href={"https://facebook.com/" + id.split("|")[0]}
-                rel="noopener noreferrer"
-                target="_blank"
-                key={id}
-              >
-                <h2 className="card-title">{id}</h2>
-              </a>
-            ))}
-            <button className="btn">Publish</button>
+
+        <div className="flex flex-col">
+          {/* TODO: support get value from editor when verbum is ready */}
+          {isVerbumReadyYet ? (
+            <EditorComposer>
+              <Editor hashtagsEnabled={true} onChange={onChange}>
+                <ToolbarPlugin defaultFontSize="20px">
+                  <FontFamilyDropdown />
+                  <FontSizeDropdown />
+                  <Divider />
+                  <BoldButton />
+                  <ItalicButton />
+                  <UnderlineButton />
+                  <CodeFormatButton />
+                  <InsertLinkButton />
+                  <TextColorPicker />
+                  <BackgroundColorPicker />
+                  <TextFormatDropdown />
+                  <Divider />
+                  <InsertDropdown enablePoll={true} />
+                  <Divider />
+                  <AlignDropdown />
+                </ToolbarPlugin>
+              </Editor>
+            </EditorComposer>
+          ) : (
+            <SimpleEditor
+              onSubmitHandler={(formData) => onChange(formData.body)}
+              hasSelected={ids.length > 0}
+            />
+          )}
+          {/* Show the selected page/group and submit button */}
+          <div className="grid grid-cols-2 gap-4">
+            {ids.length > 0 &&
+              ids?.map((id) => (
+                <div key={id}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      logger.info(id);
+                      const [groupId, groupName] = id.split("|");
+                      const group: { id: number; name: string } = {
+                        id: Number(groupId),
+                        name: groupName,
+                      };
+                      setIds(
+                        isSelected(ids, group)
+                          ? ids.filter(
+                              (fid) => fid !== `${group.id}|${group.name}`
+                            )
+                          : [...ids, `${group.id}|${group.name}`]
+                      );
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      className="inline-block h-4 w-4 stroke-current"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      ></path>
+                    </svg>
+                  </button>
+                  <a
+                    className="link link-accent"
+                    href={"https://facebook.com/" + id.split("|")[0]}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <span className="badge">{id.split("|")[1]}</span>
+                  </a>
+                </div>
+              ))}
           </div>
-        )}
+        </div>
       </div>
       <div className="tabs">
         <a

@@ -15,7 +15,7 @@ const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
   const { handleSubmit, control } = useForm<FormValues>();
   const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
   return (
-    <div className="max-h-96 overflow-auto">
+    <div className="max-h-96 w-2/3 overflow-auto">
       <DevTool control={control} placement={"top-right"} />
       <form className="container" onSubmit={onSubmit}>
         <Controller

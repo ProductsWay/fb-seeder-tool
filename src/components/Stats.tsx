@@ -6,7 +6,7 @@ export const Stats = ({
   totalGroups: number;
 }) => {
   return (
-    <div className="stats shadow">
+    <div className="stats h-36 shadow">
       <div className="stat">
         <div className="stat-figure text-primary">
           <svg
