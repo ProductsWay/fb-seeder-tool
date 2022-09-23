@@ -34,7 +34,12 @@ import { FbPages } from "./components/FbPages";
 import SimpleEditor from "./components/SimpleEditor";
 import Tags from "./components/Tags";
 import { selectedFacebookIdsAtom } from "./store";
-import { getAllGroups, getAllPages } from "./utils/api";
+import {
+  FacebookGroupItem,
+  FacebookPageItem,
+  getAllGroups,
+  getAllPages,
+} from "./utils/api";
 import logger from "./utils/logger";
 
 const asyncStoragePersister = createAsyncStoragePersister({
@@ -274,10 +279,10 @@ function Welcome({ onClick }: { onClick: () => void }) {
 function App() {
   const { reset } = useQueryErrorResetBoundary();
   const [route, setRoute] = useState<"main" | "form" | "editor">("main");
-  const [, setPages] = useLocalStorageState("pages", {
+  const [, setPages] = useLocalStorageState<FacebookPageItem[]>("pages", {
     defaultValue: [],
   });
-  const [, setGroups] = useLocalStorageState("groups", {
+  const [, setGroups] = useLocalStorageState<FacebookGroupItem[]>("groups", {
     defaultValue: [],
   });
 
