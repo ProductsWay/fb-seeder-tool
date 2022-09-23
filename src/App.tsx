@@ -34,6 +34,7 @@ import { FbPages } from "./components/FbPages";
 import SimpleEditor from "./components/SimpleEditor";
 import Tags from "./components/Tags";
 import { selectedFacebookIdsAtom } from "./store";
+import { getAllGroups, getAllPages } from "./utils/api";
 import logger from "./utils/logger";
 
 const asyncStoragePersister = createAsyncStoragePersister({
@@ -63,22 +64,25 @@ const queryClient = new QueryClient({
 
 const NoteViewer = () => {
   const [tab, setTab] = useState<"group" | "page">("group");
-  const [accessToken] = useLocalStorageState("accessToken", {
-    defaultValue: "",
-  });
   const [ids] = useAtom(selectedFacebookIdsAtom);
+  const [pages] = useLocalStorageState("pages", {
+    defaultValue: [],
+  });
+  const [groups] = useLocalStorageState("groups", {
+    defaultValue: [],
+  });
 
   const onChange = (editorState: string) => {
     logger.info(`onChange: ${editorState}`);
   };
 
-  const isVerbumReady = false;
+  const isVerbumReadyYet = false;
 
   return (
     <div className="flex flex-col mx-auto px-4 py-8">
-      <div className="h-96 mx-auto">
+      <div className="mx-auto">
         {/* TODO: support get value from editor when verbum is ready */}
-        {isVerbumReady ? (
+        {isVerbumReadyYet ? (
           <EditorComposer>
             <Editor hashtagsEnabled={true} onChange={onChange}>
               <ToolbarPlugin defaultFontSize="20px">
@@ -103,6 +107,7 @@ const NoteViewer = () => {
         ) : (
           <SimpleEditor
             onSubmitHandler={(formData) => onChange(formData.body)}
+            hasSelected={ids.length > 0}
           />
         )}
         {/* Show the selected page/group and submit button */}
@@ -143,9 +148,9 @@ const NoteViewer = () => {
       </div>
       <div className="mt-2 bg-base-200 py-2">
         {tab === "group" ? (
-          <FbGroups accessToken={accessToken} />
+          <FbGroups groups={groups} />
         ) : (
-          <FbPages accessToken={accessToken} />
+          <FbPages pages={pages} />
         )}
       </div>
     </div>
@@ -216,6 +221,7 @@ function SettingForm({
             })}
           />
         </div>
+
         <div className="w-full form-control">
           <Controller
             name="tags"
@@ -227,7 +233,21 @@ function SettingForm({
 
         <div className="w-full mt-4 form-control">
           <button className="btn" type="submit">
-            Save
+            Save & Scan{"  "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
           </button>
         </div>
       </form>
@@ -254,6 +274,23 @@ function Welcome({ onClick }: { onClick: () => void }) {
 function App() {
   const { reset } = useQueryErrorResetBoundary();
   const [route, setRoute] = useState<"main" | "form" | "editor">("main");
+  const [, setPages] = useLocalStorageState("pages", {
+    defaultValue: [],
+  });
+  const [, setGroups] = useLocalStorageState("groups", {
+    defaultValue: [],
+  });
+
+  const fetchAllFacebookPagesAndGroups = async (token: string) => {
+    logger.info(token);
+    getAllPages(token)
+      .then((data) => setPages(data))
+      .catch(logger.error);
+    getAllGroups(token)
+      .then((data) => setGroups(data))
+      .catch(logger.error);
+  };
+
   return (
     <Provider>
       <PersistQueryClientProvider
@@ -280,7 +317,12 @@ function App() {
 
             {route === "editor" && <NoteViewer />}
             {route === "form" && (
-              <SettingForm onSubmitHandler={() => setRoute("editor")} />
+              <SettingForm
+                onSubmitHandler={(data) => {
+                  fetchAllFacebookPagesAndGroups(data.accessToken);
+                  setRoute("editor");
+                }}
+              />
             )}
             {route === "main" && <Welcome onClick={() => setRoute("form")} />}
 

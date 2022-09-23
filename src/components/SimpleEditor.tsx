@@ -4,13 +4,14 @@ import { Controller, useForm } from "react-hook-form";
 
 type Props = {
   onSubmitHandler: (data: FormValues) => void;
+  hasSelected: boolean;
 };
 
 type FormValues = {
   body: string;
 };
 
-const SimpleEditor = ({ onSubmitHandler }: Props) => {
+const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
   const { handleSubmit, control } = useForm<FormValues>();
   const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
   return (
@@ -24,9 +25,11 @@ const SimpleEditor = ({ onSubmitHandler }: Props) => {
         />
 
         <div className="w-full mt-4 form-control">
-          <button className="btn" type="submit">
-            Save
-          </button>
+          {hasSelected && (
+            <button className="btn" type="submit">
+              Save
+            </button>
+          )}
         </div>
       </form>
     </div>

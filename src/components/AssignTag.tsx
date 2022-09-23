@@ -6,9 +6,12 @@ export default function AssignTag() {
     defaultValue: "",
   });
   return (
-    <Select
-      placeholder="Pick one"
-      data={tags.split(",").map((item) => ({ value: item, label: item }))}
-    />
+    <div className="flex ml-2 pt-2">
+      <Select
+        placeholder="Select tag"
+        className="h-8"
+        data={tags.split(",").map((item) => ({ value: item, label: item }))}
+      />
+    </div>
   );
 }
