@@ -85,8 +85,8 @@ const NoteViewer = () => {
   const isVerbumReadyYet = false;
 
   return (
-    <div className="flex flex-col mx-auto px-4 py-8">
-      <div className="mx-auto flex flex-row px-4 py-8 gap-2">
+    <div className="mx-auto flex flex-col px-4 py-8">
+      <div className="mx-auto flex flex-row gap-2 px-4 py-8">
         <Stats totalGroups={groups.length} totalPages={pages.length} />
         {/* TODO: support get value from editor when verbum is ready */}
         {isVerbumReadyYet ? (
@@ -139,7 +139,7 @@ const NoteViewer = () => {
         <a
           onClick={() => setTab("group")}
           className={
-            tab === "group" ? "tab tab-lifted tab-active" : "tab tab-lifted"
+            tab === "group" ? "tab tab-active tab-lifted" : "tab tab-lifted"
           }
         >
           My Groups
@@ -147,7 +147,7 @@ const NoteViewer = () => {
         <a
           onClick={() => setTab("page")}
           className={
-            tab === "page" ? "tab tab-lifted tab-active" : "tab tab-lifted"
+            tab === "page" ? "tab tab-active tab-lifted" : "tab tab-lifted"
           }
         >
           My Pages
@@ -201,10 +201,10 @@ function SettingForm({
   }, [tags]);
 
   return (
-    <div className="justify-center h-64 items-center flex flex-col mx-auto">
+    <div className="mx-auto flex h-64 flex-col items-center justify-center">
       <DevTool control={control} placement={"top-right"} />
-      <form className="container max-w-md p-4 mt-4" onSubmit={onSubmit}>
-        <div className="w-full form-control">
+      <form className="container mt-4 max-w-md p-4" onSubmit={onSubmit}>
+        <div className="form-control w-full">
           <label className="label">
             <span className="label-text">Access Token</span>
 
@@ -229,7 +229,7 @@ function SettingForm({
           />
         </div>
 
-        <div className="w-full form-control">
+        <div className="form-control w-full">
           <Controller
             name="tags"
             control={control}
@@ -238,7 +238,7 @@ function SettingForm({
           />
         </div>
 
-        <div className="w-full mt-4 form-control">
+        <div className="form-control mt-4 w-full">
           <button className="btn" type="submit">
             Save & Scan{"  "}
             <svg
@@ -247,7 +247,7 @@ function SettingForm({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 strokeLinecap="round"
@@ -264,8 +264,8 @@ function SettingForm({
 
 function Welcome({ onClick }: { onClick: () => void }) {
   return (
-    <div className="min-h-screen hero">
-      <div className="text-center hero-content">
+    <div className="hero min-h-screen">
+      <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">Hello there</h1>
           <p className="py-6">Effortless Facebook Seeding Tool</p>
@@ -315,9 +315,9 @@ function App() {
             </div>
           )}
         >
-          <div className="w-full min-h-screen bg-base-200">
+          <div className="min-h-screen w-full bg-base-200">
             <div className="navbar bg-base-100">
-              <a className="text-xl normal-case btn btn-ghost">
+              <a className="btn btn-ghost text-xl normal-case">
                 FB Seeder - Effortless Facebook Seeding
               </a>
             </div>
@@ -340,7 +340,7 @@ function App() {
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -6,7 +6,7 @@ export default function AssignTag() {
     defaultValue: "",
   });
   return (
-    <div className="flex ml-2 pt-2">
+    <div className="ml-2 flex pt-2">
       <Select
         placeholder="Select tag"
         className="h-8"

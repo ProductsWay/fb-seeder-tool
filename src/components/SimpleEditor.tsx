@@ -24,7 +24,7 @@ const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
           render={({ field }) => <RichTextEditor {...field} />}
         />
 
-        <div className="w-full mt-4 form-control">
+        <div className="form-control mt-4 w-full">
           {hasSelected && (
             <button className="btn" type="submit">
               Save

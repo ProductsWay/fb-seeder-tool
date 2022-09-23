@@ -11,7 +11,7 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
   }
 
   return (
-    <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
+    <div className="mb-20 grid w-full items-center justify-center gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {/* Show all pages */}
       {pages.map((page) => (
         <div key={page.id} className="card w-96 bg-base-100 shadow-xl">

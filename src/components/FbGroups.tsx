@@ -18,15 +18,15 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
   }
 
   return (
-    <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-center items-center mb-20">
+    <div className="mb-20 grid w-full items-center justify-center gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {/* Show all pages */}
       {groups.map((group) => (
         <div
           key={group.id}
           className={
             favoriteIds.includes(group.id)
-              ? "mx-auto card w-full bg-yellow-200 shadow-xl"
-              : "mx-auto card w-full bg-base-100 shadow-xl"
+              ? "card mx-auto w-full bg-yellow-200 shadow-xl"
+              : "card mx-auto w-full bg-base-100 shadow-xl"
           }
         >
           <div>
@@ -60,7 +60,7 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
               <img src={group.picture?.data?.url} alt={group.name} />
             </figure>
           )}
-          <div className="card-body text-center items-center">
+          <div className="card-body items-center text-center">
             <a
               className="link link-accent"
               href={"https://facebook.com/" + group.id}
@@ -71,8 +71,8 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
             </a>
 
             <div className="card-actions justify-end">
-              <div className="flex justify-end flex-1 px-2">
-                <div className="flex flex-col justify-center items-stretch mx-auto">
+              <div className="flex flex-1 justify-end px-2">
+                <div className="mx-auto flex flex-col items-stretch justify-center">
                   <a
                     onClick={() =>
                       setIds(
