@@ -20,12 +20,11 @@
 - [Tauri: Build an optimized, secure, and frontend-independent application for multi-platform deployment.](https://tauri.app/)
 - [Tailwindcss: rapidly build modern websites without ever leaving your HTML](https://tailwindcss.com/)
 - [React-hook-form: performance, flexible and extensible forms with easy-to-use validation](https://www.react-hook-form.com/)
-- [TanStack Query v4: powerful asynchronous state management for TS/JS, React, Solid, Vue and Svelte](https://tanstack.com/query/v4)
 - [Jotai: Primitive and flexible state management for React](https://jotai.org/)
 - [Verbum: is a fully flexible text editor based on lexical framework](https://github.com/ozanyurtsever/verbum)
 - [new-web-app: Frontend app generator, built on top vitejs](https://github.com/jellydn/new-web-app)
 - [use-local-storage-state: React hook that persists data in localStorage](https://github.com/astoilkov/use-local-storage-state)
-- Testing with [vitest](https://vitest.dev/)and [playwright](https://playwright.dev/)
+- Testing with [vitest](https://vitest.dev/) and [playwright](https://playwright.dev/)
 - And other standard tools as [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Nano-staged](https://github.com/usmanyunusov/nano-staged)
 
 ## Install
