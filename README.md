@@ -45,6 +45,8 @@ nr tauri dev
 
 ![https://gyazo.com/fc96fac098644f713fbc17fa3c330634.gif](https://gyazo.com/fc96fac098644f713fbc17fa3c330634.gif)
 
+![https://gyazo.com/d6cc023cf4a54b8d1f3d98e5a15ffb69.gif](https://gyazo.com/d6cc023cf4a54b8d1f3d98e5a15ffb69.gif)
+
 ## Build
 
 ```sh
