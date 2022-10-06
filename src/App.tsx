@@ -17,10 +17,11 @@ import {
   FacebookPageItem,
   getAllGroups,
   getAllPages,
+  publishToPage,
 } from "./utils/api";
 import logger from "./utils/logger";
 
-const NoteViewer = () => {
+const NoteViewer = ({ onSubmit }: { onSubmit: (msg: string) => void }) => {
   const [tab, setTab] = useState<"group" | "page">("group");
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
   const [pages] = useLocalStorageState("pages", {
@@ -30,10 +31,6 @@ const NoteViewer = () => {
     defaultValue: [],
   });
 
-  const onChange = (editorState: string) => {
-    logger.info(`onChange: ${editorState}`);
-  };
-
   return (
     <div className="mx-auto flex flex-col px-4 py-8">
       <div className="mx-auto flex flex-row gap-2 px-4 py-8">
@@ -41,7 +38,7 @@ const NoteViewer = () => {
 
         <div className="flex flex-col">
           <SimpleEditor
-            onSubmitHandler={(formData) => onChange(formData.body)}
+            onSubmitHandler={(formData) => onSubmit(formData.body)}
             hasSelected={ids.length > 0}
           />
           {/* Show the selected page/group and submit button */}
@@ -246,12 +243,13 @@ function App() {
     defaultValue: [],
   });
   const [visible, setVisible] = useState(false);
-  const [accessToken] = useLocalStorageState("accessToken", {
+  const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
 
   const fetchAllFacebookPagesAndGroups = async (token: string) => {
     setVisible(true);
+    setAccessToken(token);
     logger.info(token);
     try {
       const [pages, groups] = await Promise.all([
@@ -267,13 +265,28 @@ function App() {
     }
   };
 
+  const onPublishPage = async (msg: string) => {
+    logger.warn("publish", msg);
+    try {
+      // TODO: use page token for publish to page
+      // TODO: use user token for publish to group
+      // TODO: try to use publish html to message
+      await publishToPage(accessToken, {
+        msg,
+        pageId: "1",
+      });
+    } catch (error) {
+      logger.error(error);
+    }
+  };
+
   return (
     <Provider>
       <ErrorBoundary
         fallbackRender={({ resetErrorBoundary }) => (
           <div>
             There was an error!
-            <button className="btn" onClick={() => resetErrorBoundary()}>
+            <button className="btn" onClick={resetErrorBoundary}>
               Try again
             </button>
           </div>
@@ -287,7 +300,10 @@ function App() {
             </a>
             <Button
               variant="white"
-              onClick={() => fetchAllFacebookPagesAndGroups(accessToken)}
+              onClick={() => {
+                setRoute("editor");
+                fetchAllFacebookPagesAndGroups(accessToken);
+              }}
             >
               Reload
               <svg
@@ -307,7 +323,7 @@ function App() {
             </Button>
           </div>
 
-          {route === "editor" && <NoteViewer />}
+          {route === "editor" && <NoteViewer onSubmit={onPublishPage} />}
           {route === "form" && (
             <SettingForm
               onSubmitHandler={(data) => {

@@ -107,3 +107,12 @@ pub struct Cursors {
     #[serde(rename = "after")]
     after: Option<String>,
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct FeedResponse {
+    #[serde(rename = "id")]
+    id: Option<String>,
+
+    #[serde(rename = "error")]
+    error: Option<Error>,
+}

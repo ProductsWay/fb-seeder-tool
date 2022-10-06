@@ -93,3 +93,16 @@ export async function getAllGroups(token: string) {
 
   return result;
 }
+
+export async function publishToPage(
+  token: string,
+  { msg, pageId }: { msg: string; pageId: string }
+) {
+  const response = await invoke<string>("post_to_fb_page", {
+    token,
+    msg,
+    pageId,
+  });
+  logger.info("publish to page response", response);
+  return JSON.parse(response);
+}
