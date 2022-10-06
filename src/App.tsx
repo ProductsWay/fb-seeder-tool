@@ -5,24 +5,6 @@ import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Controller, useForm } from "react-hook-form";
 import useLocalStorageState from "use-local-storage-state";
-import {
-  AlignDropdown,
-  BackgroundColorPicker,
-  BoldButton,
-  CodeFormatButton,
-  Divider,
-  Editor,
-  EditorComposer,
-  FontFamilyDropdown,
-  FontSizeDropdown,
-  InsertDropdown,
-  InsertLinkButton,
-  ItalicButton,
-  TextColorPicker,
-  TextFormatDropdown,
-  ToolbarPlugin,
-  UnderlineButton,
-} from "verbum";
 
 import { FbGroups } from "./components/FbGroups";
 import { FbPages } from "./components/FbPages";
@@ -52,43 +34,16 @@ const NoteViewer = () => {
     logger.info(`onChange: ${editorState}`);
   };
 
-  const isVerbumReadyYet = false;
-
   return (
     <div className="mx-auto flex flex-col px-4 py-8">
       <div className="mx-auto flex flex-row gap-2 px-4 py-8">
         <Stats totalGroups={groups.length} totalPages={pages.length} />
 
         <div className="flex flex-col">
-          {/* TODO: support get value from editor when verbum is ready */}
-          {isVerbumReadyYet ? (
-            <EditorComposer>
-              <Editor hashtagsEnabled={true} onChange={onChange}>
-                <ToolbarPlugin defaultFontSize="20px">
-                  <FontFamilyDropdown />
-                  <FontSizeDropdown />
-                  <Divider />
-                  <BoldButton />
-                  <ItalicButton />
-                  <UnderlineButton />
-                  <CodeFormatButton />
-                  <InsertLinkButton />
-                  <TextColorPicker />
-                  <BackgroundColorPicker />
-                  <TextFormatDropdown />
-                  <Divider />
-                  <InsertDropdown enablePoll={true} />
-                  <Divider />
-                  <AlignDropdown />
-                </ToolbarPlugin>
-              </Editor>
-            </EditorComposer>
-          ) : (
-            <SimpleEditor
-              onSubmitHandler={(formData) => onChange(formData.body)}
-              hasSelected={ids.length > 0}
-            />
-          )}
+          <SimpleEditor
+            onSubmitHandler={(formData) => onChange(formData.body)}
+            hasSelected={ids.length > 0}
+          />
           {/* Show the selected page/group and submit button */}
           <div className="grid grid-cols-2 gap-4">
             {ids.length > 0 &&

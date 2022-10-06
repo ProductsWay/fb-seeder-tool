@@ -31,8 +31,7 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "3.1.4",
     "react-hook-form": "7.36.1",
-    "use-local-storage-state": "18.1.1",
-    "verbum": "0.4.0"
+    "use-local-storage-state": "18.1.1"
   },
   "devDependencies": {
     "@playwright/test": "1.26.1",
