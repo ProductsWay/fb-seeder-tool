@@ -23,7 +23,7 @@ specifiers:
   eslint-config-productsway: 0.1.16
   happy-dom: 7.0.3
   husky: 8.0.1
-  jotai: 1.8.4
+  jotai: 1.8.5
   mitt: 3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
@@ -52,7 +52,7 @@ dependencies:
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
   '@tauri-apps/api': 1.1.0
   daisyui: 2.31.0_5zjlt5w4ir2cay3te66iu3k3ji
-  jotai: 1.8.4_obstn65pa6zrrg27pp7sudypiq
+  jotai: 1.8.5_obstn65pa6zrrg27pp7sudypiq
   mitt: 3.0.0
   p-forever: 3.0.1
   pino: 8.6.1
@@ -3424,8 +3424,8 @@ packages:
     resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
     dev: true
 
-  /jotai/1.8.4_obstn65pa6zrrg27pp7sudypiq:
-    resolution: {integrity: sha512-bkHDHNxm7bU4+bJL4z96fTlJYN34UDRTu3ghEajJrDepayON9YEaxPrXr7xhLnIRntoFC6eDYYhMNA/ilbj2RQ==}
+  /jotai/1.8.5_obstn65pa6zrrg27pp7sudypiq:
+    resolution: {integrity: sha512-c6MGQ3S0X8VctRUEmRLEL3FMib3F7Ppsx3x86c5XL+Gm6JjH6qIt0lb0F4yE2V5/9Tg+KhGiagfsdA5lg0D7cQ==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       '@babel/core': '*'

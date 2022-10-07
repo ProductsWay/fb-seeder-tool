@@ -23,7 +23,7 @@
     "@tailwindcss/typography": "0.5.7",
     "@tauri-apps/api": "1.1.0",
     "daisyui": "2.31.0",
-    "jotai": "1.8.4",
+    "jotai": "1.8.5",
     "mitt": "3.0.0",
     "p-forever": "^3.0.1",
     "pino": "8.6.1",
