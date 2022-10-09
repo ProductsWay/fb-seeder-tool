@@ -162,7 +162,7 @@ function SettingForm({
       <form className="container mt-4 max-w-md p-4" onSubmit={onSubmit}>
         <div className="form-control w-full">
           <label className="label">
-            <span className="label-text">Access Token</span>
+            <span className="label-text">User Access Token</span>
 
             <div className="tooltip" data-tip="Create a new access token">
               <a
