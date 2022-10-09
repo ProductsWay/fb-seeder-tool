@@ -4,9 +4,9 @@
 )]
 use std::collections::HashMap;
 
-extern crate html2md;
+extern crate html2text;
 
-use html2md::parse_html;
+use html2text::from_read;
 
 #[macro_use]
 extern crate log;
@@ -52,8 +52,6 @@ async fn fetch_fb_pages(
     Ok(resp)
 }
 
-// convert html 2 markdown
-
 #[tokio::main]
 async fn publish_to_fb_page(
     token: &str,
@@ -64,7 +62,7 @@ async fn publish_to_fb_page(
     info!("api_url: {}", api_url);
 
     let mut map = HashMap::new();
-    map.insert("message", msg);
+    map.insert("message", from_read(msg.as_bytes(), 80));
 
     let client = reqwest::Client::new();
     let resp = client
@@ -111,11 +109,6 @@ fn post_to_fb_page(token: &str, msg: &str, page_id: &str) -> String {
     json
 }
 
-fn html2markdown(html: &str) -> String {
-    let md = parse_html(r#html);
-    return md;
-}
-
 fn main() {
     env_logger::init();
     info!("starting up");
@@ -135,9 +128,4 @@ fn main() {
         ])
         .run(context)
         .expect("error while running tauri application");
-}
-
-#[test]
-fn handle_html_to_markdown() {
-    assert_eq!(html2markdown("<h1>Hello</h1>"), "Hello\n==========");
 }

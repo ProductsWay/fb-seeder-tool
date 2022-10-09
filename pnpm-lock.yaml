@@ -6,6 +6,7 @@ specifiers:
   '@mantine/hooks': 5.5.4
   '@mantine/rte': 5.5.4
   '@playwright/test': 1.27.0
+  '@preact/signals-react': ^1.1.1
   '@tailwindcss/typography': 0.5.7
   '@tauri-apps/api': 1.1.0
   '@tauri-apps/cli': 1.1.1
@@ -36,6 +37,7 @@ specifiers:
   react-dom: 18.2.0
   react-error-boundary: 3.1.4
   react-hook-form: 7.37.0
+  react-hot-toast: ^2.4.0
   sort-package-json: 2.0.0
   tailwindcss: 3.1.8
   tsx: 3.10.1
@@ -49,6 +51,7 @@ dependencies:
   '@mantine/core': 5.5.4_46jyd4tz2lts7aqjdwe2gnr2n4
   '@mantine/hooks': 5.5.4_react@18.2.0
   '@mantine/rte': 5.5.4_peoatue7sckyfiogasz7flkvpm
+  '@preact/signals-react': 1.1.1_react@18.2.0
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
   '@tauri-apps/api': 1.1.0
   daisyui: 2.31.0_5zjlt5w4ir2cay3te66iu3k3ji
@@ -60,6 +63,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-error-boundary: 3.1.4_react@18.2.0
   react-hook-form: 7.37.0_react@18.2.0
+  react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   use-local-storage-state: 18.1.1_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
@@ -822,6 +826,19 @@ packages:
       '@types/node': 18.8.3
       playwright-core: 1.27.0
     dev: true
+
+  /@preact/signals-core/1.2.1:
+    resolution: {integrity: sha512-aqzRMNFU1hoQyP4Kb1ldJrUTCnA9vqPDa7qHEQzHJ3upnBOcC2pjmvjAuTqGuY4AVTtUkCQV0FvOCuIQQ2hSdA==}
+    dev: false
+
+  /@preact/signals-react/1.1.1_react@18.2.0:
+    resolution: {integrity: sha512-U5HNWBt4q5pmsZjDOuVcz3OXLQtaBMMSErnTHFohOFQClBqHlVD/hmhayEEO38I9iU71kofhw2ngeWso/GsVMw==}
+    peerDependencies:
+      react: 17.x || 18.x
+    dependencies:
+      '@preact/signals-core': 1.2.1
+      react: 18.2.0
+    dev: false
 
   /@radix-ui/number/1.0.0:
     resolution: {integrity: sha512-Ofwh/1HX69ZfJRiRBMTy7rgjAzHmwe4kW9C9Y99HTRUcYLUuVT0KESFj15rPjRgKJs20GPq8Bm5aEDJ8DuA3vA==}
@@ -2792,6 +2809,14 @@ packages:
       slash: 4.0.0
     dev: true
 
+  /goober/2.1.11_csstype@3.1.1:
+    resolution: {integrity: sha512-5SS2lmxbhqH0u9ABEWq7WPU69a4i2pYcHeCxqaNq6Cw3mnrF0ghWNM4tEGid4dKy8XNIAUbuThuozDHHKJVh3A==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dependencies:
+      csstype: 3.1.1
+    dev: false
+
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
     dev: true
@@ -3843,6 +3868,20 @@ packages:
       react: ^16.8.0 || ^17 || ^18
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /react-hot-toast/2.4.0_owo25xnefcwdq3zjgtohz6dbju:
+    resolution: {integrity: sha512-qnnVbXropKuwUpriVVosgo8QrB+IaPJCpL8oBI6Ov84uvHZ5QQcTp2qg6ku2wNfgJl6rlQXJIQU5q+5lmPOutA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      goober: 2.1.11_csstype@3.1.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - csstype
     dev: false
 
   /react-is/16.13.1:

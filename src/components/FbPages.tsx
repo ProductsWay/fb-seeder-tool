@@ -6,6 +6,8 @@ import useLocalStorageState from "use-local-storage-state";
 
 import { isSelected, selectedFacebookIdsAtom } from "../store";
 import { FacebookPageItem } from "../utils/api";
+import emitter from "../utils/emitter";
+import logger from "../utils/logger";
 
 type FormValues = {
   accessToken: string;
@@ -18,15 +20,14 @@ function FacebookPageSettingForm({
   onSubmitHandler: (data: FormValues) => void;
   pageId: number;
 }) {
-  const [accessToken, setAccessToken] = useLocalStorageState(
-    `pageAccessToken${pageId}`,
-    {
-      defaultValue: "",
-    }
-  );
+  const [pageAccessToken, setPageAccessToken] = useLocalStorageState<
+    Record<string, string>
+  >(`pageAccessToken`, {
+    defaultValue: {},
+  });
   const { register, handleSubmit, watch } = useForm<FormValues>({
     defaultValues: {
-      accessToken,
+      accessToken: pageAccessToken?.[pageId] ?? "",
     },
   });
   const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
@@ -34,7 +35,10 @@ function FacebookPageSettingForm({
   const token = watch("accessToken");
 
   useEffect(() => {
-    setAccessToken(token);
+    setPageAccessToken({
+      ...pageAccessToken,
+      [pageId]: token,
+    });
   }, [token]);
 
   return (
@@ -49,7 +53,7 @@ function FacebookPageSettingForm({
                 rel="noopener noreferrer"
                 className="btn btn-info"
                 target="_blank"
-                href="https://developers.facebook.com/tools/accesstoken/"
+                href="https://developers.facebook.com/tools/explorer/"
               >
                 Generate
               </a>
@@ -58,7 +62,7 @@ function FacebookPageSettingForm({
           <textarea
             className="textarea textarea-bordered"
             placeholder="Place your access token"
-            defaultValue={accessToken}
+            defaultValue={pageAccessToken?.[pageId] ?? ""}
             {...register("accessToken", {
               required: true,
             })}
@@ -107,15 +111,17 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
               </a>
               <div className="card-actions">
                 <button
-                  onClick={() =>
+                  onClick={() => {
+                    logger.warn("fb page", page);
+                    emitter.emit("page", page.id.toString());
                     setIds(
                       isSelected(ids, { id: page.id, name: page.page_token })
                         ? ids.filter(
                             (id) => id !== `${page.id}|${page.page_token}`
                           )
                         : [...ids, `${page.id}|${page.page_token}`]
-                    )
-                  }
+                    );
+                  }}
                   className="btn btn-primary"
                 >
                   {isSelected(ids, { id: page.id, name: page.page_token })

@@ -4,6 +4,7 @@ import { Provider, useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Controller, useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 import useLocalStorageState from "use-local-storage-state";
 
 import { FbGroups } from "./components/FbGroups";
@@ -19,6 +20,7 @@ import {
   getAllPages,
   publishToPage,
 } from "./utils/api";
+import { selectedFBPages } from "./utils/emitter";
 import logger from "./utils/logger";
 
 const NoteViewer = ({ onSubmit }: { onSubmit: (msg: string) => void }) => {
@@ -236,6 +238,13 @@ function Welcome({ onClick }: { onClick: () => void }) {
 
 function App() {
   const [route, setRoute] = useState<"main" | "form" | "editor">("main");
+  const [pageAccessToken] = useLocalStorageState<Record<string, string>>(
+    `pageAccessToken`,
+    {
+      defaultValue: {},
+    }
+  );
+
   const [, setPages] = useLocalStorageState<FacebookPageItem[]>("pages", {
     defaultValue: [],
   });
@@ -266,14 +275,23 @@ function App() {
   };
 
   const onPublishPage = async (msg: string) => {
-    logger.warn("publish", msg);
     try {
-      // TODO: use page token for publish to page
       // TODO: use user token for publish to group
-      // TODO: try to use publish html to message
-      await publishToPage(accessToken, {
-        msg,
-        pageId: "1",
+      selectedFBPages.value.forEach((pageId) => {
+        logger.warn("page id", pageId);
+        const pageToken = pageAccessToken[pageId];
+        if (pageToken) {
+          const toastId = toast.loading("Publishing to page:" + pageId);
+          publishToPage(pageToken, {
+            msg,
+            pageId,
+          })
+            .then(() => {
+              toast.success("Pubished to page " + pageId);
+              toast.dismiss(toastId);
+            })
+            .catch(logger.error);
+        }
       });
     } catch (error) {
       logger.error(error);
@@ -292,6 +310,7 @@ function App() {
           </div>
         )}
       >
+        <Toaster />
         <div className="min-h-screen w-full bg-base-200">
           <LoadingOverlay visible={visible} overlayBlur={2} />
           <div className="navbar bg-base-100 justify-center">

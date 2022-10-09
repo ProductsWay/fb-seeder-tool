@@ -20,6 +20,7 @@
     "@mantine/core": "5.5.4",
     "@mantine/hooks": "5.5.4",
     "@mantine/rte": "5.5.4",
+    "@preact/signals-react": "^1.1.1",
     "@tailwindcss/typography": "0.5.7",
     "@tauri-apps/api": "1.1.0",
     "daisyui": "2.31.0",
@@ -31,6 +32,7 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "3.1.4",
     "react-hook-form": "7.37.0",
+    "react-hot-toast": "^2.4.0",
     "use-local-storage-state": "18.1.1"
   },
   "devDependencies": {
