@@ -4,6 +4,10 @@
 )]
 use std::collections::HashMap;
 
+extern crate html2md;
+
+use html2md::parse_html;
+
 #[macro_use]
 extern crate log;
 mod fb;
@@ -47,6 +51,8 @@ async fn fetch_fb_pages(
 
     Ok(resp)
 }
+
+// convert html 2 markdown
 
 #[tokio::main]
 async fn publish_to_fb_page(
@@ -105,12 +111,22 @@ fn post_to_fb_page(token: &str, msg: &str, page_id: &str) -> String {
     json
 }
 
+fn html2markdown(html: &str) -> String {
+    let md = parse_html(r#html);
+    return md;
+}
+
 fn main() {
     env_logger::init();
     info!("starting up");
 
     let context = tauri::generate_context!();
     tauri::Builder::default()
+        // TODO: support FB app by getting access token, refer https://tauri.app/blog/2022/09/19/tauri-egui-0-1/
+        .setup(|app| {
+            app.wry_plugin(tauri_egui::EguiPluginBuilder::new(app.handle()));
+            Ok(())
+        })
         .menu(tauri::Menu::os_default(&context.package_info().name))
         .invoke_handler(tauri::generate_handler![
             fb_groups,
@@ -119,4 +135,9 @@ fn main() {
         ])
         .run(context)
         .expect("error while running tauri application");
+}
+
+#[test]
+fn handle_html_to_markdown() {
+    assert_eq!(html2markdown("<h1>Hello</h1>"), "Hello\n==========");
 }

@@ -7,8 +7,8 @@ test("navigate to form and submit data", async ({ page }) => {
   );
 
   // Click text=FB Seeder - Effortless Facebook Seeding
-  expect(page.locator(".navbar")).toHaveText(
-    "FB Seeder - Effortless Facebook Seeding"
+  expect(page.locator(".navbar")).toContainText(
+    "FB Seeder - Effortless Facebook Seeding Tool"
   );
 
   // Click text=Get Started
