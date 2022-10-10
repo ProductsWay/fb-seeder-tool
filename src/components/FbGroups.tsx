@@ -6,6 +6,7 @@ import {
   selectedFacebookIdsAtom,
 } from "../store";
 import { FacebookGroupItem } from "../utils/api";
+import emitter from "../utils/emitter";
 import AssignTag from "./AssignTag";
 
 // only scan fb group or page once
@@ -31,13 +32,14 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
         >
           <div>
             <button
-              onClick={() =>
+              onClick={() => {
+                emitter.emit("group", group.id.toString());
                 setFavoriteIds(
                   favoriteIds.includes(group.id)
                     ? favoriteIds.filter((id) => id !== group.id)
                     : [...favoriteIds, group.id]
-                )
-              }
+                );
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

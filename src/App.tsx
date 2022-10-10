@@ -56,9 +56,10 @@ function App() {
     }
   };
 
+  // TODO: use user token for publish to group
+  //
   const onPublishPage = async (msg: string) => {
     try {
-      // TODO: use user token for publish to group
       selectedFBPages.value.forEach((pageId) => {
         logger.warn("page id", pageId);
         const pageToken = pageAccessToken[pageId];
