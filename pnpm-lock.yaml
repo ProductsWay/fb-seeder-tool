@@ -5,7 +5,7 @@ specifiers:
   '@mantine/core': 5.5.4
   '@mantine/hooks': 5.5.4
   '@mantine/rte': 5.5.4
-  '@playwright/test': 1.27.0
+  '@playwright/test': 1.27.1
   '@preact/signals-react': 1.1.1
   '@tailwindcss/typography': 0.5.7
   '@tauri-apps/api': 1.1.0
@@ -67,7 +67,7 @@ dependencies:
   use-local-storage-state: 18.1.1_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
-  '@playwright/test': 1.27.0
+  '@playwright/test': 1.27.1
   '@tauri-apps/cli': 1.1.1
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
   '@trivago/prettier-plugin-sort-imports': 3.3.0_prettier@2.7.1
@@ -818,13 +818,13 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
-  /@playwright/test/1.27.0:
-    resolution: {integrity: sha512-L4BswoJvGkFsEHhEgzVNHBnkFB1FbnBQn3QmvTl7+AouoJQ4a8tLwZKvytdovCsNi7B5cXuRo58yGvfM5PnExw==}
+  /@playwright/test/1.27.1:
+    resolution: {integrity: sha512-mrL2q0an/7tVqniQQF6RBL2saskjljXzqNcCOVMUjRIgE6Y38nCNaP+Dc2FBW06bcpD3tqIws/HT9qiMHbNU0A==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.8.3
-      playwright-core: 1.27.0
+      playwright-core: 1.27.1
     dev: true
 
   /@preact/signals-core/1.2.1:
@@ -1143,13 +1143,13 @@ packages:
   /@types/concat-stream/1.6.1:
     resolution: {integrity: sha512-eHE4cQPoj6ngxBZMvVf6Hw7Mh4jMW4U9lpGmS5GBPB9RYxlFg+CHaVN7ErNY4W9XfLIEn20b4VDYaIrbq0q4uA==}
     dependencies:
-      '@types/node': 8.10.66
+      '@types/node': 18.8.3
     dev: true
 
   /@types/form-data/0.0.33:
     resolution: {integrity: sha512-8BSvG1kGm83cyJITQMZSulnl6QV8jqAGreJsc5tPu1Jq0vTSOiY/k24Wx82JRpWwZSqrala6sd5rWi6aNXvqcw==}
     dependencies:
-      '@types/node': 8.10.66
+      '@types/node': 18.8.3
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
@@ -3668,8 +3668,8 @@ packages:
       thread-stream: 2.2.0
     dev: false
 
-  /playwright-core/1.27.0:
-    resolution: {integrity: sha512-VBKaaFUVKDo3akW+o4DwbK1ZyXh46tcSwQKPK3lruh8IJd5feu55XVZx4vOkbb2uqrNdIF51sgsadYT533SdpA==}
+  /playwright-core/1.27.1:
+    resolution: {integrity: sha512-9EmeXDncC2Pmp/z+teoVYlvmPWUC6ejSSYZUln7YaP89Z6lpAaiaAnqroUt/BoLo8tn7WYShcfaCh+xofZa44Q==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
