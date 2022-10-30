@@ -1,6 +1,7 @@
-import { Button, LoadingOverlay } from "@mantine/core";
+import { Alert, Button, LoadingOverlay } from "@mantine/core";
+import { IconAlertCircle } from "@tabler/icons";
 import { Provider } from "jotai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import toast, { Toaster } from "react-hot-toast";
 import useLocalStorageState from "use-local-storage-state";
@@ -37,7 +38,7 @@ function App() {
   const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
-
+  const [apiError, setApiError] = useState();
   const fetchAllFacebookPagesAndGroups = async (token: string) => {
     setVisible(true);
     setAccessToken(token);
@@ -49,8 +50,11 @@ function App() {
       ]);
       setPages(pages);
       setGroups(groups);
-    } catch (error) {
+      setApiError(undefined);
+    } catch (error: any) {
       logger.error(error);
+      setApiError(error);
+      toast.error(error.message);
     } finally {
       setVisible(false);
     }
@@ -80,6 +84,11 @@ function App() {
       logger.error(error);
     }
   };
+
+  // reload all pages and groups on the 1st render
+  useEffect(() => {
+    fetchAllFacebookPagesAndGroups(accessToken);
+  }, []);
 
   return (
     <Provider>
@@ -124,6 +133,15 @@ function App() {
               </svg>
             </Button>
           </div>
+          {apiError && (
+            <Alert
+              icon={<IconAlertCircle size={16} />}
+              title="Bummer!"
+              color="red"
+            >
+              {(apiError as Error)?.message}
+            </Alert>
+          )}
 
           {route === "editor" && <NoteViewer onSubmit={onPublishPage} />}
           {route === "form" && (

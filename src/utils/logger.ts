@@ -1,9 +1,5 @@
 import pino from "pino";
 
-const logger = pino({
-  prettyPrint: {
-    levelFirst: true,
-  },
-});
+const logger = pino({});
 
 export default logger;
