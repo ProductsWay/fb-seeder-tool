@@ -24,7 +24,7 @@
     "@tailwindcss/typography": "0.5.7",
     "@tauri-apps/api": "1.1.0",
     "daisyui": "2.36.1",
-    "jotai": "1.9.0",
+    "jotai": "1.9.1",
     "mitt": "3.0.0",
     "p-forever": "3.0.1",
     "pino": "8.7.0",
