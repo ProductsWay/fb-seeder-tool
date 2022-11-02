@@ -36,7 +36,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-error-boundary: 3.1.4
-  react-hook-form: 7.38.0
+  react-hook-form: 7.39.1
   react-hot-toast: 2.4.0
   sort-package-json: 2.0.0
   tailwindcss: 3.2.1
@@ -62,7 +62,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-error-boundary: 3.1.4_react@18.2.0
-  react-hook-form: 7.38.0_react@18.2.0
+  react-hook-form: 7.39.1_react@18.2.0
   react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   use-local-storage-state: 18.1.1_biqbaboplfbrettd7655fr4n2y
 
@@ -4017,8 +4017,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-hook-form/7.38.0_react@18.2.0:
-    resolution: {integrity: sha512-gxWW1kMeru9xR1GoR+Iw4hA+JBOM3SHfr4DWCUKY0xc7Vv1MLsF109oHtBeWl9shcyPFx67KHru44DheN0XY5A==}
+  /react-hook-form/7.39.1_react@18.2.0:
+    resolution: {integrity: sha512-MiF9PCILN5KulhSGbnjohMiTOrB47GerDTichMNP0y2cPUu1GTRFqbunOxCE9N1499YTLMV/ne4gFzqCp1rxrQ==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
