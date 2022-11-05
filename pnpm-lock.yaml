@@ -19,7 +19,7 @@ specifiers:
   '@vitejs/plugin-react': 2.2.0
   autoprefixer: 10.4.13
   c8: 7.12.0
-  daisyui: 2.36.1
+  daisyui: 2.38.1
   eslint: 8.26.0
   eslint-config-productsway: 0.1.16
   happy-dom: 7.6.6
@@ -54,7 +54,7 @@ dependencies:
   '@preact/signals-react': 1.2.1_react@18.2.0
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.1
   '@tauri-apps/api': 1.1.0
-  daisyui: 2.36.1_lycaqaeny3mp632atgvyvqdgwe
+  daisyui: 2.38.1_lycaqaeny3mp632atgvyvqdgwe
   jotai: 1.9.0_otspjrsspon4ofp37rshhlhp2y
   mitt: 3.0.0
   p-forever: 3.0.1
@@ -1977,8 +1977,8 @@ packages:
   /csstype/3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
 
-  /daisyui/2.36.1_lycaqaeny3mp632atgvyvqdgwe:
-    resolution: {integrity: sha512-l43iibOsfYAYfRMIsCfobSk4ygV2/OiQMX98zLFrafWt5zoSed7I4b4tRlKeP6xhnfVe6Xkv/84nFfapHI0B2A==}
+  /daisyui/2.38.1_lycaqaeny3mp632atgvyvqdgwe:
+    resolution: {integrity: sha512-fHAVi+bT3H9QCNM7LNEH1EMPT0IwqufuW2RNhTJZorX3TftB1bWW437BVmSt70AZH72Xvp0mVxwVS3ChSKSj0w==}
     peerDependencies:
       autoprefixer: ^10.0.2
       postcss: ^8.1.6

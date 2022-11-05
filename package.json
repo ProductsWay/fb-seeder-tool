@@ -23,7 +23,7 @@
     "@preact/signals-react": "1.2.1",
     "@tailwindcss/typography": "0.5.7",
     "@tauri-apps/api": "1.1.0",
-    "daisyui": "2.36.1",
+    "daisyui": "2.38.1",
     "jotai": "1.9.0",
     "mitt": "3.0.0",
     "p-forever": "3.0.1",
