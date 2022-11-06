@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@hookform/devtools': 4.2.3
   '@mantine/core': 5.6.3
-  '@mantine/hooks': 5.6.3
+  '@mantine/hooks': 5.7.1
   '@mantine/rte': 5.6.3
   '@playwright/test': 1.27.1
   '@preact/signals-react': 1.2.1
@@ -48,9 +48,9 @@ specifiers:
 
 dependencies:
   '@hookform/devtools': 4.2.3_ovnpmkgfyand75et73pnqceycy
-  '@mantine/core': 5.6.3_2yvvzd7v3s6muv5ypyjzc4ibii
-  '@mantine/hooks': 5.6.3_react@18.2.0
-  '@mantine/rte': 5.6.3_hliqdvg4trnmlenfv3ync25tfa
+  '@mantine/core': 5.6.3_gun7jsgrgmxsoaufihtmyxx75q
+  '@mantine/hooks': 5.7.1_react@18.2.0
+  '@mantine/rte': 5.6.3_lwe6ople3nvu4y4tmtj7wsjrhe
   '@preact/signals-react': 1.2.1_react@18.2.0
   '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.1
   '@tauri-apps/api': 1.1.0
@@ -816,7 +816,7 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  /@mantine/core/5.6.3_2yvvzd7v3s6muv5ypyjzc4ibii:
+  /@mantine/core/5.6.3_gun7jsgrgmxsoaufihtmyxx75q:
     resolution: {integrity: sha512-joEeRblARR/faeOjOeETY4l4osYEFfgZV0+i8BO7TyalZ+ONMUurYWJp0a5iX4Gf3M6uNO9lbBLlsOy2vDnNew==}
     peerDependencies:
       '@mantine/hooks': 5.6.3
@@ -824,7 +824,7 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/react-dom-interactions': 0.10.1_knhnagtyfncgg2hpin7s37uixq
-      '@mantine/hooks': 5.6.3_react@18.2.0
+      '@mantine/hooks': 5.7.1_react@18.2.0
       '@mantine/styles': 5.6.3_7xbt6cqxny5okm7nuwm4cfiesq
       '@mantine/utils': 5.6.3_react@18.2.0
       '@radix-ui/react-scroll-area': 1.0.0_biqbaboplfbrettd7655fr4n2y
@@ -836,15 +836,15 @@ packages:
       - '@types/react'
     dev: false
 
-  /@mantine/hooks/5.6.3_react@18.2.0:
-    resolution: {integrity: sha512-de3Fm7Z2MrWms8Ah/YbG9fr6CLLtAfz5LCwtqnRXgOetqbu38ZERYNi7TMFxnhGdZko90QjdIpiQRJBsfVax+g==}
+  /@mantine/hooks/5.7.1_react@18.2.0:
+    resolution: {integrity: sha512-I50Xa9ddiptAv2jtxmcVwuIj9s2lFMbSCXKwFwDKzxJQwWt45Hv4el4znmGuN/FluE2D/pJhje0FAP5NhMpgNw==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
       react: 18.2.0
     dev: false
 
-  /@mantine/rte/5.6.3_hliqdvg4trnmlenfv3ync25tfa:
+  /@mantine/rte/5.6.3_lwe6ople3nvu4y4tmtj7wsjrhe:
     resolution: {integrity: sha512-FJrJYVvv5ORXjf45NKxZQ9K9gj11DrEnE01fD+7hi8jqV2N8zA1vRnvDtlu/i5SX9x3BUxxa77JodSvBskk3nQ==}
     peerDependencies:
       '@mantine/core': 5.6.3
@@ -852,8 +852,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@mantine/core': 5.6.3_2yvvzd7v3s6muv5ypyjzc4ibii
-      '@mantine/hooks': 5.6.3_react@18.2.0
+      '@mantine/core': 5.6.3_gun7jsgrgmxsoaufihtmyxx75q
+      '@mantine/hooks': 5.7.1_react@18.2.0
       '@tabler/icons': 1.101.0_biqbaboplfbrettd7655fr4n2y
       quill-mention: 3.1.0
       react: 18.2.0
