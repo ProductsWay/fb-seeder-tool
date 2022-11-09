@@ -12,18 +12,18 @@ rust-version = "1.57"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "1.1.1", features = [] }
+tauri-build = { version = "=1.1.1", features = [] }
 
 [dependencies]
-html2text = "0.4.3"
-tauri-egui = "0.1"
-serde_json = "1.0"
-log = "0.4.17"
-env_logger = "0.9.1"
-serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.1.1", features = ["api-all"] }
-reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1", features = ["full"] }
+html2text = "=0.4.3"
+tauri-egui = "=0.1.0"
+serde_json = "=1.0.87"
+log = "=0.4.17"
+env_logger = "=0.9.1"
+serde = { version = "=1.0.147", features = ["derive"] }
+tauri = { version = "=1.1.1", features = ["api-all"] }
+reqwest = { version = "=0.11.12", features = ["json"] }
+tokio = { version = "=1.21.2", features = ["full"] }
 
 [features]
 # by default Tauri runs in production mode
