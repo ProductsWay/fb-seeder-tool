@@ -83,6 +83,8 @@ nr test
 
 ## Show your support
 
+[![Stargazers repo roster for @jellydn/fb-seeder-tool](https://reporoster.com/stars/jellydn/fb-seeder-tool)](https://github.com/jellydn/fb-seeder-tool/stargazers)
+
 Give a ⭐️ if this project helped you!
 
 ---
