@@ -7,7 +7,10 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react({ babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] } }),
+    react({
+      jsxRuntime: "classic",
+      babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] },
+    }),
   ],
   test: {
     globals: true,
