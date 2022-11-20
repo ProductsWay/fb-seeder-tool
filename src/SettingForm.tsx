@@ -42,10 +42,10 @@ export function SettingForm({
   }, [tags]);
 
   return (
-    <div className="mx-auto flex h-64 flex-col items-center justify-center">
+    <div className="flex flex-col justify-center items-center mx-auto h-64">
       <DevTool control={control} placement={"top-right"} />
-      <form className="container mt-4 max-w-md p-4" onSubmit={onSubmit}>
-        <div className="form-control w-full">
+      <form className="container p-4 mt-4 max-w-md" onSubmit={onSubmit}>
+        <div className="w-full form-control">
           <label className="label">
             <span className="label-text">User Access Token</span>
 
@@ -70,7 +70,7 @@ export function SettingForm({
           />
         </div>
 
-        <div className="form-control w-full">
+        <div className="w-full form-control">
           <Controller
             name="tags"
             control={control}
@@ -79,7 +79,7 @@ export function SettingForm({
           />
         </div>
 
-        <div className="form-control mt-4 w-full">
+        <div className="mt-4 w-full form-control">
           <button className="btn" type="submit">
             Save & Scan{"  "}
             <svg
@@ -88,7 +88,7 @@ export function SettingForm({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="h-6 w-6"
+              className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"

@@ -15,7 +15,7 @@ const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
   const { handleSubmit, control } = useForm<FormValues>();
   const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
   return (
-    <div className="max-h-96 w-2/3 overflow-auto">
+    <div className="overflow-auto w-2/3 max-h-96">
       <DevTool control={control} placement={"top-right"} />
       <form className="container" onSubmit={onSubmit}>
         <Controller
@@ -24,7 +24,7 @@ const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
           render={({ field }) => <RichTextEditor {...field} />}
         />
 
-        <div className="form-control mt-4 w-full">
+        <div className="mt-4 w-full form-control">
           {hasSelected && (
             <button className="btn" type="submit">
               Save

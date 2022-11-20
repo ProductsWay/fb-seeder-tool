@@ -15,11 +15,11 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
   const [favoriteIds, setFavoriteIds] = useAtom(favoriteFacebookIdsAtom);
 
   if (groups.length === 0) {
-    return <progress className="progress w-56"></progress>;
+    return <progress className="w-56 progress"></progress>;
   }
 
   return (
-    <div className="mb-20 grid w-full items-center justify-center gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid gap-3 justify-center items-center mb-20 w-full md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {/* Show all pages */}
       {groups.map((group) => (
         <div
@@ -43,7 +43,7 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -62,7 +62,7 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
               <img src={group.picture?.data?.url} alt={group.name} />
             </figure>
           )}
-          <div className="card-body items-center text-center">
+          <div className="items-center text-center card-body">
             <a
               className="link link-accent"
               href={"https://facebook.com/" + group.id}
@@ -72,9 +72,9 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
               <h2 className="card-title">{group.name}</h2>
             </a>
 
-            <div className="card-actions justify-end">
+            <div className="justify-end card-actions">
               <div className="flex flex-1 justify-end px-2">
-                <div className="mx-auto flex flex-col items-stretch justify-center">
+                <div className="flex flex-col justify-center items-stretch mx-auto">
                   <a
                     onClick={() =>
                       setIds(

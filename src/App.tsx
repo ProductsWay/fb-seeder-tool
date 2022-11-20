@@ -103,10 +103,10 @@ function App() {
         )}
       >
         <Toaster />
-        <div className="min-h-screen w-full bg-base-200">
+        <div className="w-full min-h-screen bg-base-200">
           <LoadingOverlay visible={visible} overlayBlur={2} />
-          <div className="navbar bg-base-100 justify-center">
-            <a className="btn btn-ghost text-xl normal-case">
+          <div className="justify-center navbar bg-base-100">
+            <a className="text-xl normal-case btn btn-ghost">
               FB Seeder - Effortless Facebook Seeding Tool
             </a>
             <Button
@@ -161,7 +161,7 @@ function App() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -180,7 +180,7 @@ function App() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -199,7 +199,7 @@ function App() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

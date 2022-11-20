@@ -6,7 +6,7 @@ export const Stats = ({
   totalGroups: number;
 }) => {
   return (
-    <div className="stats h-36 shadow">
+    <div className="h-36 shadow stats">
       <div className="stat">
         <div className="stat-figure text-primary">
           <svg
@@ -15,7 +15,7 @@ export const Stats = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-6 w-6"
+            className="w-6 h-6"
           >
             <path
               strokeLinecap="round"
@@ -35,7 +35,7 @@ export const Stats = ({
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-6 w-6"
+            className="w-6 h-6"
           >
             <path
               strokeLinecap="round"

@@ -42,9 +42,9 @@ function FacebookPageSettingForm({
   }, [token]);
 
   return (
-    <div className="mx-auto flex flex-col items-center justify-center">
+    <div className="flex flex-col justify-center items-center mx-auto">
       <form className="container max-w-md" onSubmit={onSubmit}>
-        <div className="form-control w-full">
+        <div className="w-full form-control">
           <label className="label">
             <span className="label-text">Access Token</span>
 
@@ -69,7 +69,7 @@ function FacebookPageSettingForm({
           />
         </div>
 
-        <div className="form-control mt-4 w-full">
+        <div className="mt-4 w-full form-control">
           <button className="btn" type="submit">
             Save
           </button>
@@ -84,7 +84,7 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
   const [opened, setOpened] = useState<[boolean, number]>([false, 0]);
 
   if (pages.length === 0) {
-    return <progress className="progress w-56"></progress>;
+    return <progress className="w-56 progress"></progress>;
   }
 
   const onClose = () => {
@@ -96,11 +96,11 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
       <Modal opened={opened[0]} onClose={onClose} title="Facebook Page Setting">
         <FacebookPageSettingForm pageId={opened[1]} onSubmitHandler={onClose} />
       </Modal>
-      <div className="mb-20 grid w-full items-center justify-center gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid gap-3 justify-center items-center mb-20 w-full md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {/* Show all pages */}
         {pages.map((page) => (
-          <div key={page.id} className="card w-96 bg-base-100 shadow-xl">
-            <div className="card-body items-center text-center">
+          <div key={page.id} className="w-96 shadow-xl card bg-base-100">
+            <div className="items-center text-center card-body">
               <a
                 className="link link-accent"
                 href={"https://facebook.com/" + page.id}

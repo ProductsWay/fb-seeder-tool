@@ -20,8 +20,8 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
   });
 
   return (
-    <div className="mx-auto flex flex-col px-4 py-8">
-      <div className="mx-auto flex flex-row gap-2 px-4 py-8">
+    <div className="flex flex-col py-8 px-4 mx-auto">
+      <div className="flex flex-row gap-2 py-8 px-4 mx-auto">
         <Stats totalGroups={groups.length} totalPages={pages.length} />
 
         <div className="flex flex-col">
@@ -56,7 +56,7 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      className="inline-block h-4 w-4 stroke-current"
+                      className="inline-block w-4 h-4 stroke-current"
                     >
                       <path
                         strokeLinecap="round"
@@ -97,7 +97,7 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
           My Pages
         </a>
       </div>
-      <div className="mt-2 bg-base-200 py-2">
+      <div className="py-2 mt-2 bg-base-200">
         {tab === "group" ? (
           <FbGroups groups={groups} />
         ) : (
