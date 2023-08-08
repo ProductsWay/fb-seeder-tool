@@ -24,7 +24,7 @@ specifiers:
   eslint-config-productsway: 0.2.0
   happy-dom: 8.1.1
   husky: 8.0.2
-  jotai: 1.12.0
+  jotai: 2.3.1
   mitt: 3.0.0
   nano-staged: 0.8.0
   npm-run-all: 4.1.5
@@ -56,7 +56,7 @@ dependencies:
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
   '@tauri-apps/api': 2.0.0-alpha.0
   daisyui: 2.46.0_r4gnkvssmvyxmi2wmat5xbx36a
-  jotai: 1.12.0_dojr2aquw55jwdpbannhlirjf4
+  jotai: 2.3.1_kzbn2opkn2327fwg5yzwzya5o4
   mitt: 3.0.0
   p-forever: 3.0.1
   pino: 8.8.0
@@ -3405,44 +3405,19 @@ packages:
     resolution: {integrity: sha512-nO6jcEfZWQXDhOiBtG2KvKyEptz7RVbpGP4vTD2hLBdmNQSsCiicO2Ioinv6UI4y9ukqnBpy+XZ9H6uLNgJTlw==}
     dev: true
 
-  /jotai/1.12.0_dojr2aquw55jwdpbannhlirjf4:
-    resolution: {integrity: sha512-IhyBmjxU1sE2Ni/MUK7gQAb8QvCM6yd1/K5jtQzgQBmmjCjgfXZkkk1rYlQAIRp2KoQk0Y+yzhm1f5cZ7kegnw==}
+  /jotai/2.3.1_kzbn2opkn2327fwg5yzwzya5o4:
+    resolution: {integrity: sha512-pXhx8/MeRUAHbzayerEUf9NHvP+Ba3q9WAvIMjaSwwuSCKEFhb8UW4XuZPC+Bv4u2ufvlyrxIZ+vy5UJ3f8JsQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
-      '@babel/core': '*'
-      '@babel/template': '*'
-      jotai-immer: '*'
-      jotai-optics: '*'
-      jotai-redux: '*'
-      jotai-tanstack-query: '*'
-      jotai-urql: '*'
-      jotai-valtio: '*'
-      jotai-xstate: '*'
-      jotai-zustand: '*'
-      react: '>=16.8'
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
     peerDependenciesMeta:
-      '@babel/core':
+      '@types/react':
         optional: true
-      '@babel/template':
-        optional: true
-      jotai-immer:
-        optional: true
-      jotai-optics:
-        optional: true
-      jotai-redux:
-        optional: true
-      jotai-tanstack-query:
-        optional: true
-      jotai-urql:
-        optional: true
-      jotai-valtio:
-        optional: true
-      jotai-xstate:
-        optional: true
-      jotai-zustand:
+      react:
         optional: true
     dependencies:
-      '@babel/core': 7.20.7
+      '@types/react': 18.0.26
       react: 18.2.0
     dev: false
 
