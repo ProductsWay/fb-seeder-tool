@@ -35,7 +35,7 @@ specifiers:
   prettier-plugin-tailwindcss: 0.2.1
   react: 18.2.0
   react-dom: 18.2.0
-  react-error-boundary: 3.1.4
+  react-error-boundary: 4.0.11
   react-hook-form: 7.41.0
   react-hot-toast: 2.4.0
   rustywind: 0.15.1
@@ -62,7 +62,7 @@ dependencies:
   pino: 8.8.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-error-boundary: 3.1.4_react@18.2.0
+  react-error-boundary: 4.0.11_react@18.2.0
   react-hook-form: 7.41.0_react@18.2.0
   react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   use-local-storage-state: 18.1.2_biqbaboplfbrettd7655fr4n2y
@@ -4165,9 +4165,8 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
-  /react-error-boundary/3.1.4_react@18.2.0:
-    resolution: {integrity: sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==}
-    engines: {node: '>=10', npm: '>=6'}
+  /react-error-boundary/4.0.11_react@18.2.0:
+    resolution: {integrity: sha512-U13ul67aP5DOSPNSCWQ/eO0AQEYzEFkVljULQIjMV0KlffTAhxuDoBKdO0pb/JZ8mDhMKFZ9NZi0BmLGUiNphw==}
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
