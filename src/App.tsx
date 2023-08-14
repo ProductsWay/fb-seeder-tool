@@ -1,7 +1,7 @@
 import { Alert, Button, LoadingOverlay } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons";
 import { Provider } from "jotai";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import toast, { Toaster } from "react-hot-toast";
 import useLocalStorageState from "use-local-storage-state";
@@ -39,29 +39,30 @@ function App() {
     defaultValue: "",
   });
   const [apiError, setApiError] = useState<Error | undefined>();
-  const fetchAllFacebookPagesAndGroups = async (token: string) => {
-    setVisible(true);
-    setAccessToken(token);
-    logger.info(token);
-    try {
-      const [pages, groups] = await Promise.all([
-        getAllPages(token),
-        getAllGroups(token),
-      ]);
-      setPages(pages);
-      setGroups(groups);
-      setApiError(undefined);
-    } catch (error) {
-      logger.error(error);
-      setApiError(error as Error);
-      toast.error((error as Error).message);
-    } finally {
-      setVisible(false);
-    }
-  };
+  const fetchAllFacebookPagesAndGroups = useCallback(
+    async (token: string) => {
+      setVisible(true);
+      setAccessToken(token);
+      logger.info(token);
+      try {
+        const [pages, groups] = await Promise.all([
+          getAllPages(token),
+          getAllGroups(token),
+        ]);
+        setPages(pages);
+        setGroups(groups);
+        setApiError(undefined);
+      } catch (error) {
+        logger.error(error);
+        setApiError(error as Error);
+        toast.error((error as Error).message);
+      } finally {
+        setVisible(false);
+      }
+    },
+    [setAccessToken, setGroups, setPages],
+  );
 
-  // TODO: use user token for publish to group
-  //
   const onPublishPage = async (msg: string) => {
     try {
       selectedFBPages.value.forEach((pageId) => {
@@ -74,7 +75,7 @@ function App() {
             pageId,
           })
             .then(() => {
-              toast.success("Pubished to page " + pageId);
+              toast.success("Punished to page " + pageId);
               toast.dismiss(toastId);
             })
             .catch(logger.error);
@@ -87,8 +88,10 @@ function App() {
 
   // Reload all pages and groups on the 1st render
   useEffect(() => {
+    if (!accessToken) return;
     fetchAllFacebookPagesAndGroups(accessToken).catch(logger.error);
-  }, [accessToken, fetchAllFacebookPagesAndGroups]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Provider>

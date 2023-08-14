@@ -7,28 +7,29 @@ license = "MIT"
 repository = "https://github.com/jellydn/fb-seeder-tool"
 default-run = "fb-seeder-tool"
 edition = "2021"
-rust-version = "1.57"
+rust-version = "1.65"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+name = "app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
 [build-dependencies]
-tauri-build = { version = "2.0.0-alpha.0", features = [] }
+tauri-build = { version = "1.4.0", features = [] }
 
 [dependencies]
 html2text = "=0.4.3"
-tauri-egui = "=0.1.0"
-serde_json = "=1.0.87"
 log = "=0.4.17"
 env_logger = "=0.9.1"
-serde = { version = "=1.0.147", features = ["derive"] }
-tauri = { version = "2.0.0-alpha.0", features = ["api-all"] }
 reqwest = { version = "=0.11.12", features = ["json"] }
 tokio = { version = "=1.21.2", features = ["full"] }
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.4.0", features = [] }
 
 [features]
-# by default Tauri runs in production mode
-# when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
-default = [ "custom-protocol" ]
-# this feature is used used for production builds where `devPath` points to the filesystem
-# DO NOT remove this
-custom-protocol = [ "tauri/custom-protocol" ]
+# this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
+# If you use cargo directly instead of tauri's cli you can use this feature flag to switch between tauri's `dev` and `build` modes.
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
