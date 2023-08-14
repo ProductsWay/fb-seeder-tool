@@ -10,8 +10,8 @@ import { NoteViewer } from "./NoteViewer";
 import { SettingForm } from "./SettingForm";
 import { Welcome } from "./Welcome";
 import {
-  FacebookGroupItem,
-  FacebookPageItem,
+  type FacebookGroupItem,
+  type FacebookPageItem,
   getAllGroups,
   getAllPages,
   publishToPage,
@@ -25,7 +25,7 @@ function App() {
     `pageAccessToken`,
     {
       defaultValue: {},
-    }
+    },
   );
 
   const [, setPages] = useLocalStorageState<FacebookPageItem[]>("pages", {
@@ -38,7 +38,7 @@ function App() {
   const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
   });
-  const [apiError, setApiError] = useState();
+  const [apiError, setApiError] = useState<Error | undefined>();
   const fetchAllFacebookPagesAndGroups = async (token: string) => {
     setVisible(true);
     setAccessToken(token);
@@ -51,10 +51,10 @@ function App() {
       setPages(pages);
       setGroups(groups);
       setApiError(undefined);
-    } catch (error: any) {
+    } catch (error) {
       logger.error(error);
-      setApiError(error);
-      toast.error(error.message);
+      setApiError(error as Error);
+      toast.error((error as Error).message);
     } finally {
       setVisible(false);
     }
@@ -85,10 +85,10 @@ function App() {
     }
   };
 
-  // reload all pages and groups on the 1st render
+  // Reload all pages and groups on the 1st render
   useEffect(() => {
-    fetchAllFacebookPagesAndGroups(accessToken);
-  }, []);
+    fetchAllFacebookPagesAndGroups(accessToken).catch(logger.error);
+  }, [accessToken, fetchAllFacebookPagesAndGroups]);
 
   return (
     <Provider>
@@ -96,7 +96,7 @@ function App() {
         fallbackRender={({ resetErrorBoundary }) => (
           <div>
             There was an error!
-            <button className="btn" onClick={resetErrorBoundary}>
+            <button type="button" className="btn" onClick={resetErrorBoundary}>
               Try again
             </button>
           </div>
@@ -113,7 +113,7 @@ function App() {
               variant="white"
               onClick={() => {
                 setRoute("editor");
-                fetchAllFacebookPagesAndGroups(accessToken);
+                fetchAllFacebookPagesAndGroups(accessToken).catch(logger.error);
               }}
             >
               Reload
@@ -139,7 +139,7 @@ function App() {
               title="Bummer!"
               color="red"
             >
-              {(apiError as Error)?.message}
+              {apiError?.message}
             </Alert>
           )}
 
@@ -147,17 +147,28 @@ function App() {
           {route === "form" && (
             <SettingForm
               onSubmitHandler={(data) => {
-                fetchAllFacebookPagesAndGroups(data.accessToken);
+                fetchAllFacebookPagesAndGroups(data.accessToken).catch(
+                  logger.error,
+                );
                 setRoute("editor");
               }}
             />
           )}
-          {route === "main" && <Welcome onClick={() => setRoute("form")} />}
+          {route === "main" && (
+            <Welcome
+              onClick={() => {
+                setRoute("form");
+              }}
+            />
+          )}
 
           <div className="btm-nav">
             <button
-              onClick={() => setRoute("main")}
+              type="button"
               className={route === "main" ? "active" : ""}
+              onClick={() => {
+                setRoute("main");
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -175,8 +186,11 @@ function App() {
               </svg>
             </button>
             <button
-              onClick={() => setRoute("editor")}
+              type="button"
               className={route === "editor" ? "active" : ""}
+              onClick={() => {
+                setRoute("editor");
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -194,8 +208,11 @@ function App() {
               </svg>
             </button>
             <button
-              onClick={() => setRoute("form")}
+              type="button"
               className={route === "form" ? "active" : ""}
+              onClick={() => {
+                setRoute("form");
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

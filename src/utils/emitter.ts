@@ -11,7 +11,7 @@ type Events = {
   page: string;
 };
 
-const emitter = mitt<Events>(); // inferred as Emitter<Events>
+const emitter = mitt<Events>(); // Inferred as Emitter<Events>
 
 emitter.on("page", (pageId) => {
   logger.info("pageId", pageId);

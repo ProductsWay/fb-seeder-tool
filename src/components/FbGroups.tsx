@@ -5,17 +5,17 @@ import {
   isSelected,
   selectedFacebookIdsAtom,
 } from "../store";
-import { FacebookGroupItem } from "../utils/api";
+import { type FacebookGroupItem } from "../utils/api";
 import emitter from "../utils/emitter";
 import AssignTag from "./AssignTag";
 
-// only scan fb group or page once
-export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
+// Only scan fb group or page once
+export function FbGroups({ groups }: { readonly groups: FacebookGroupItem[] }) {
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
   const [favoriteIds, setFavoriteIds] = useAtom(favoriteFacebookIdsAtom);
 
   if (groups.length === 0) {
-    return <progress className="w-56 progress"></progress>;
+    return <progress className="w-56 progress" />;
   }
 
   return (
@@ -32,12 +32,13 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
         >
           <div>
             <button
+              type="button"
               onClick={() => {
                 emitter.emit("group", group.id.toString());
                 setFavoriteIds(
                   favoriteIds.includes(group.id)
                     ? favoriteIds.filter((id) => id !== group.id)
-                    : [...favoriteIds, group.id]
+                    : [...favoriteIds, group.id],
                 );
               }}
             >
@@ -76,16 +77,16 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
               <div className="flex flex-1 justify-end px-2">
                 <div className="flex flex-col justify-center items-stretch mx-auto">
                   <a
-                    onClick={() =>
+                    className="btn btn-primary"
+                    onClick={() => {
                       setIds(
                         isSelected(ids, group)
                           ? ids.filter(
-                              (id) => id !== `${group.id}|${group.name}`
+                              (id) => id !== `${group.id}|${group.name}`,
                             )
-                          : [...ids, `${group.id}|${group.name}`]
-                      )
-                    }
-                    className="btn btn-primary"
+                          : [...ids, `${group.id}|${group.name}`],
+                      );
+                    }}
                   >
                     {isSelected(ids, group) ? "Remove" : "Add"}
                   </a>
@@ -98,4 +99,4 @@ export const FbGroups = ({ groups }: { groups: Array<FacebookGroupItem> }) => {
       ))}
     </div>
   );
-};
+}

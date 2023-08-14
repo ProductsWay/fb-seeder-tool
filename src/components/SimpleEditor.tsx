@@ -3,20 +3,22 @@ import { RichTextEditor } from "@mantine/rte";
 import { Controller, useForm } from "react-hook-form";
 
 type Props = {
-  onSubmitHandler: (data: FormValues) => void;
-  hasSelected: boolean;
+  readonly onSubmitHandler: (data: FormValues) => void;
+  readonly hasSelected: boolean;
 };
 
 type FormValues = {
   body: string;
 };
 
-const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
+function SimpleEditor({ onSubmitHandler, hasSelected }: Props) {
   const { handleSubmit, control } = useForm<FormValues>();
-  const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
+  const onSubmit = handleSubmit((data: FormValues) => {
+    onSubmitHandler(data);
+  });
   return (
     <div className="overflow-auto w-2/3 max-h-96">
-      <DevTool control={control} placement={"top-right"} />
+      <DevTool control={control} placement="top-right" />
       <form className="container" onSubmit={onSubmit}>
         <Controller
           name="body"
@@ -34,6 +36,6 @@ const SimpleEditor = ({ onSubmitHandler, hasSelected }: Props) => {
       </form>
     </div>
   );
-};
+}
 
 export default SimpleEditor;

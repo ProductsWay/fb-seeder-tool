@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import useLocalStorageState from "use-local-storage-state";
 
 import { isSelected, selectedFacebookIdsAtom } from "../store";
-import { FacebookPageItem } from "../utils/api";
+import { type FacebookPageItem } from "../utils/api";
 import emitter from "../utils/emitter";
 import logger from "../utils/logger";
 
@@ -17,8 +17,8 @@ function FacebookPageSettingForm({
   onSubmitHandler,
   pageId,
 }: {
-  onSubmitHandler: (data: FormValues) => void;
-  pageId: number;
+  readonly onSubmitHandler: (data: FormValues) => void;
+  readonly pageId: number;
 }) {
   const [pageAccessToken, setPageAccessToken] = useLocalStorageState<
     Record<string, string>
@@ -30,7 +30,9 @@ function FacebookPageSettingForm({
       accessToken: pageAccessToken?.[pageId] ?? "",
     },
   });
-  const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
+  const onSubmit = handleSubmit((data: FormValues) => {
+    onSubmitHandler(data);
+  });
 
   const token = watch("accessToken");
 
@@ -79,12 +81,12 @@ function FacebookPageSettingForm({
   );
 }
 
-export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
+export function FbPages({ pages }: { readonly pages: FacebookPageItem[] }) {
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
   const [opened, setOpened] = useState<[boolean, number]>([false, 0]);
 
   if (pages.length === 0) {
-    return <progress className="w-56 progress"></progress>;
+    return <progress className="w-56 progress" />;
   }
 
   const onClose = () => {
@@ -93,7 +95,7 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
 
   return (
     <>
-      <Modal opened={opened[0]} onClose={onClose} title="Facebook Page Setting">
+      <Modal opened={opened[0]} title="Facebook Page Setting" onClose={onClose}>
         <FacebookPageSettingForm pageId={opened[1]} onSubmitHandler={onClose} />
       </Modal>
       <div className="grid gap-3 justify-center items-center mb-20 w-full md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -111,26 +113,29 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
               </a>
               <div className="card-actions">
                 <button
+                  type="button"
+                  className="btn btn-primary"
                   onClick={() => {
                     logger.warn("fb page", page);
                     emitter.emit("page", page.id.toString());
                     setIds(
                       isSelected(ids, { id: page.id, name: page.page_token })
                         ? ids.filter(
-                            (id) => id !== `${page.id}|${page.page_token}`
+                            (id) => id !== `${page.id}|${page.page_token}`,
                           )
-                        : [...ids, `${page.id}|${page.page_token}`]
+                        : [...ids, `${page.id}|${page.page_token}`],
                     );
                   }}
-                  className="btn btn-primary"
                 >
                   {isSelected(ids, { id: page.id, name: page.page_token })
                     ? "Remove"
                     : "Add"}
                 </button>
                 <Button
-                  onClick={() => setOpened([true, page.id])}
                   className="btn btn-secondary"
+                  onClick={() => {
+                    setOpened([true, page.id]);
+                  }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -160,4 +165,4 @@ export const FbPages = ({ pages }: { pages: Array<FacebookPageItem> }) => {
       </div>
     </>
   );
-};
+}

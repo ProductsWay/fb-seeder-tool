@@ -9,7 +9,11 @@ import { Stats } from "./components/Stats";
 import { isSelected, selectedFacebookIdsAtom } from "./store";
 import logger from "./utils/logger";
 
-export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
+export function NoteViewer({
+  onSubmit,
+}: {
+  readonly onSubmit: (msg: string) => void;
+}) {
   const [tab, setTab] = useState<"group" | "page">("group");
   const [ids, setIds] = useAtom(selectedFacebookIdsAtom);
   const [pages] = useLocalStorageState("pages", {
@@ -26,8 +30,10 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
 
         <div className="flex flex-col">
           <SimpleEditor
-            onSubmitHandler={(formData) => onSubmit(formData.body)}
             hasSelected={ids.length > 0}
+            onSubmitHandler={(formData) => {
+              onSubmit(formData.body);
+            }}
           />
           {/* Show the selected page/group and submit button */}
           <div className="grid grid-cols-2 gap-4">
@@ -46,9 +52,9 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
                       setIds(
                         isSelected(ids, group)
                           ? ids.filter(
-                              (fid) => fid !== `${group.id}|${group.name}`
+                              (fid) => fid !== `${group.id}|${group.name}`,
                             )
-                          : [...ids, `${group.id}|${group.name}`]
+                          : [...ids, `${group.id}|${group.name}`],
                       );
                     }}
                   >
@@ -63,7 +69,7 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
                         strokeLinejoin="round"
                         strokeWidth="2"
                         d="M6 18L18 6M6 6l12 12"
-                      ></path>
+                      />
                     </svg>
                   </button>
                   <a
@@ -81,18 +87,22 @@ export function NoteViewer({ onSubmit }: { onSubmit: (msg: string) => void }) {
       </div>
       <div className="tabs">
         <a
-          onClick={() => setTab("group")}
           className={
             tab === "group" ? "tab tab-active tab-lifted" : "tab tab-lifted"
           }
+          onClick={() => {
+            setTab("group");
+          }}
         >
           My Groups
         </a>
         <a
-          onClick={() => setTab("page")}
           className={
             tab === "page" ? "tab tab-active tab-lifted" : "tab tab-lifted"
           }
+          onClick={() => {
+            setTab("page");
+          }}
         >
           My Pages
         </a>

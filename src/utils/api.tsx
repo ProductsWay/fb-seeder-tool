@@ -22,7 +22,7 @@ export async function getFacebookPages(token: string, after = "") {
   }
 
   return {
-    pages: data as Array<FacebookPageItem>,
+    pages: data as FacebookPageItem[],
     nextCursor: paging?.cursors?.after,
   };
 }
@@ -71,7 +71,7 @@ export async function getFacebookGroup(token: string, after = "") {
   }
 
   return {
-    groups: data as Array<FacebookGroupItem>,
+    groups: data as FacebookGroupItem[],
     nextCursor: paging?.cursors?.after,
   };
 }
@@ -96,7 +96,7 @@ export async function getAllGroups(token: string) {
 
 export async function publishToPage(
   token: string,
-  { msg, pageId }: { msg: string; pageId: string }
+  { msg, pageId }: { msg: string; pageId: string },
 ) {
   const response = await invoke<string>("post_to_fb_page", {
     token,

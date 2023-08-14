@@ -1,10 +1,10 @@
-export const Stats = ({
+export function Stats({
   totalPages,
   totalGroups,
 }: {
-  totalPages: number;
-  totalGroups: number;
-}) => {
+  readonly totalPages: number;
+  readonly totalGroups: number;
+}) {
   return (
     <div className="h-36 shadow stats">
       <div className="stat">
@@ -49,4 +49,4 @@ export const Stats = ({
       </div>
     </div>
   );
-};
+}

@@ -3,9 +3,9 @@ import { MultiSelect } from "@mantine/core";
 import logger from "../utils/logger";
 
 type Props = {
-  value: string;
-  onChange: (value: string) => void;
-  onBlur: (evt: any) => void;
+  readonly value: string;
+  readonly onChange: (value: string) => void;
+  readonly onBlur: (evt: any) => void;
 };
 
 export default function Tags({ value, onChange, onBlur }: Props) {
@@ -17,12 +17,12 @@ export default function Tags({ value, onChange, onBlur }: Props) {
 
   return (
     <MultiSelect
+      creatable
+      searchable
       label="Tags"
       data={data}
       defaultValue={value.split(",")}
       placeholder="Select Tags"
-      creatable
-      searchable
       getCreateLabel={(query) => `+ Create ${query}`}
       onChange={(selectedValue) => {
         onChange(selectedValue.join(","));

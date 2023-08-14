@@ -13,7 +13,7 @@ export type FormValues = {
 export function SettingForm({
   onSubmitHandler,
 }: {
-  onSubmitHandler: (data: FormValues) => void;
+  readonly onSubmitHandler: (data: FormValues) => void;
 }) {
   const [accessToken, setAccessToken] = useLocalStorageState("accessToken", {
     defaultValue: "",
@@ -28,7 +28,9 @@ export function SettingForm({
       tags: list,
     },
   });
-  const onSubmit = handleSubmit((data: FormValues) => onSubmitHandler(data));
+  const onSubmit = handleSubmit((data: FormValues) => {
+    onSubmitHandler(data);
+  });
 
   const token = watch("accessToken");
   const tags = watch("tags");
@@ -43,7 +45,7 @@ export function SettingForm({
 
   return (
     <div className="flex flex-col justify-center items-center mx-auto h-64">
-      <DevTool control={control} placement={"top-right"} />
+      <DevTool control={control} placement="top-right" />
       <form className="container p-4 mt-4 max-w-md" onSubmit={onSubmit}>
         <div className="w-full form-control">
           <label className="label">
