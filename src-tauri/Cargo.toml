@@ -16,7 +16,7 @@ name = "app_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "1.4.0", features = [] }
+tauri-build = { version = "=1.4.0", features = [] }
 
 [dependencies]
 html2text = "=0.4.3"
@@ -24,9 +24,9 @@ log = "=0.4.17"
 env_logger = "=0.9.1"
 reqwest = { version = "=0.11.12", features = ["json"] }
 tokio = { version = "=1.24.2", features = ["full"] }
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.4.0", features = [] }
+serde_json = "=1.0.104"
+serde = { version = "=1.0.183", features = ["derive"] }
+tauri = { version = "=1.4.0", features = [] }
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
