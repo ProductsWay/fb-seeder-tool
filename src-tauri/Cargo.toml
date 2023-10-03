@@ -22,7 +22,7 @@ tauri-build = { version = "=1.5.0", features = [] }
 html2text = "=0.6.0"
 log = "=0.4.20"
 env_logger = "=0.10.0"
-reqwest = { version = "=0.11.21", features = ["json"] }
+reqwest = { version = "=0.11.22", features = ["json"] }
 tokio = { version = "=1.32.0", features = ["full"] }
 serde_json = "=1.0.107"
 serde = { version = "=1.0.188", features = ["derive"] }
