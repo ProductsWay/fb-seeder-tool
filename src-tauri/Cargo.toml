@@ -25,7 +25,7 @@ env_logger = "=0.10.0"
 reqwest = { version = "=0.11.22", features = ["json"] }
 tokio = { version = "=1.33.0", features = ["full"] }
 serde_json = "=1.0.107"
-serde = { version = "=1.0.188", features = ["derive"] }
+serde = { version = "=1.0.189", features = ["derive"] }
 tauri = { version = "=1.5.2", features = [] }
 
 [features]
