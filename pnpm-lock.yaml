@@ -122,8 +122,8 @@ devDependencies:
     specifier: 0.5.6
     version: 0.5.6(@trivago/prettier-plugin-sort-imports@4.2.0)(prettier@3.0.3)
   rustywind:
-    specifier: 0.19.0
-    version: 0.19.0
+    specifier: 0.20.0
+    version: 0.20.0
   sort-package-json:
     specifier: 2.6.0
     version: 2.6.0
@@ -4357,8 +4357,8 @@ packages:
     dependencies:
       queue-microtask: 1.2.3
 
-  /rustywind@0.19.0:
-    resolution: {integrity: sha512-v+rrU4Q1LK5fshUdXwXQ8h0wOUY+hbeot2aPJiGrv0lCBk9x6kSCctE7z8N9v5UPxfm3o0sqKqDwX2Zd5YV5fw==}
+  /rustywind@0.20.0:
+    resolution: {integrity: sha512-QkvAOAitwRHbjd2eEXa7P1yjte4SanKorYIwHg56jtKwyXVPgqHT53n3eqTi+UE5MNYGJD/OqWjWj4jwZhS5JA==}
     hasBin: true
     requiresBuild: true
     dependencies:
