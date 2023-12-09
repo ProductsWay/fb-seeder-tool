@@ -40,7 +40,7 @@
     "@tauri-apps/cli": "1.5.5",
     "@testing-library/react": "14.1.2",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
-    "@types/react": "18.2.42",
+    "@types/react": "18.2.43",
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
@@ -62,7 +62,7 @@
     "tsx": "4.6.2",
     "typescript": "5.3.3",
     "vite": "5.0.7",
-    "vitest": "1.0.2"
+    "vitest": "1.0.3"
   },
   "nano-staged": {
     "*.{js,tsx}": "eslint --cache --fix",
