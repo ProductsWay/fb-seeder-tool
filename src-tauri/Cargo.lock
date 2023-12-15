@@ -1209,13 +1209,14 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "html2text"
-version = "0.6.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "74cda84f06c1cc83476f79ae8e2e892b626bdadafcb227baec54c918cadc18a0"
+checksum = "1dab6ff4ac7bfa756d09865c004abf44d4f1f5d80d15902cd714c00ae1bf9cc4"
 dependencies = [
  "html5ever 0.26.0",
  "markup5ever 0.11.0",
  "tendril",
+ "thiserror",
  "unicode-width",
  "xml5ever",
 ]
