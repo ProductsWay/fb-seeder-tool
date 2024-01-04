@@ -90,7 +90,7 @@ devDependencies:
     version: 4.2.1(vite@5.0.10)
   autoprefixer:
     specifier: 10.4.16
-    version: 10.4.16(postcss@8.4.32)
+    version: 10.4.16(postcss@8.4.33)
   c8:
     specifier: 8.0.1
     version: 8.0.1
@@ -113,8 +113,8 @@ devDependencies:
     specifier: 4.1.5
     version: 4.1.5
   postcss:
-    specifier: 8.4.32
-    version: 8.4.32
+    specifier: 8.4.33
+    version: 8.4.33
   prettier:
     specifier: 3.1.1
     version: 3.1.1
@@ -140,8 +140,8 @@ devDependencies:
     specifier: 5.0.10
     version: 5.0.10
   vitest:
-    specifier: 1.1.1
-    version: 1.1.1(happy-dom@10.11.2)
+    specifier: 1.1.2
+    version: 1.1.2(happy-dom@10.11.2)
 
 packages:
 
@@ -1472,6 +1472,10 @@ packages:
       '@babel/types': 7.23.6
     dev: true
 
+  /@types/estree@1.0.5:
+    resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+    dev: true
+
   /@types/istanbul-lib-coverage@2.0.6:
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
     dev: true
@@ -1673,40 +1677,41 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/expect@1.1.1:
-    resolution: {integrity: sha512-Qpw01C2Hyb3085jBkOJLQ7HRX0Ncnh2qV4p+xWmmhcIUlMykUF69zsnZ1vPmAjZpomw9+5tWEGOQ0GTfR8U+kA==}
+  /@vitest/expect@1.1.2:
+    resolution: {integrity: sha512-1aOqDLbgkvJ2e1nLQ/5dkUX54V1Alwt2e6M2u03Oy7wGbDYHV5ZLKm1XbcT45h8TMXtc2q/BPtkeIjyRv1oDHQ==}
     dependencies:
-      '@vitest/spy': 1.1.1
-      '@vitest/utils': 1.1.1
+      '@vitest/spy': 1.1.2
+      '@vitest/utils': 1.1.2
       chai: 4.3.10
     dev: true
 
-  /@vitest/runner@1.1.1:
-    resolution: {integrity: sha512-8HokyJo1SnSi3uPFKfWm/Oq1qDwLC4QDcVsqpXIXwsRPAg3gIDh8EbZ1ri8cmQkBxdOu62aOF9B4xcqJhvt4xQ==}
+  /@vitest/runner@1.1.2:
+    resolution: {integrity: sha512-oTqXCGtZzu9EaXq9cO/QDGnC721iryuTPs5rLyVZUJsdm33IQeIOwTRIWUB7EYFwpJsI+qMiCiuGZS49+DP5hA==}
     dependencies:
-      '@vitest/utils': 1.1.1
+      '@vitest/utils': 1.1.2
       p-limit: 5.0.0
       pathe: 1.1.1
     dev: true
 
-  /@vitest/snapshot@1.1.1:
-    resolution: {integrity: sha512-WnMHjv4VdHLbFGgCdVVvyRkRPnOKN75JJg+LLTdr6ah7YnL75W+7CTIMdzPEPzaDxA8r5yvSVlc1d8lH3yE28w==}
+  /@vitest/snapshot@1.1.2:
+    resolution: {integrity: sha512-hXXd5KjURGt6GCrmw55A+PNIlrOaE6x6KcdEANXac76xmvVbJZXSiNVJ1JuMCiyvLLTzdpPnrgWyCX9/CepFCQ==}
     dependencies:
       magic-string: 0.30.5
       pathe: 1.1.1
       pretty-format: 29.7.0
     dev: true
 
-  /@vitest/spy@1.1.1:
-    resolution: {integrity: sha512-hDU2KkOTfFp4WFFPWwHFauddwcKuGQ7gF6Un/ZZkCogoAiTMN7/7YKvUDbywPZZ754iCQGjdUmXN3t4k0jm1IQ==}
+  /@vitest/spy@1.1.2:
+    resolution: {integrity: sha512-1Nn70K3oY00lhThDXsVQxjslUvJij1YQDzH/4FMxMLgjYxB5u4Aw4yXeICNSSap04wyV2dtGL3RqdBGwoR3sPA==}
     dependencies:
       tinyspy: 2.2.0
     dev: true
 
-  /@vitest/utils@1.1.1:
-    resolution: {integrity: sha512-E9LedH093vST/JuBSyHLFMpxJKW3dLhe/flUSPFedoyj4wKiFX7Jm8gYLtOIiin59dgrssfmFv0BJ1u8P/LC/A==}
+  /@vitest/utils@1.1.2:
+    resolution: {integrity: sha512-QrXfDieptshDkTkXnA+HmlVQto1h0jengbkSKcJjlbCMeXbSCr3AcALPPzozRQxEOKvFjqx9WHjljz62uxrGew==}
     dependencies:
       diff-sequences: 29.6.3
+      estree-walker: 3.0.3
       loupe: 2.3.7
       pretty-format: 29.7.0
     dev: true
@@ -1912,7 +1917,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: false
 
-  /autoprefixer@10.4.16(postcss@8.4.32):
+  /autoprefixer@10.4.16(postcss@8.4.33):
     resolution: {integrity: sha512-7vd3UC6xKp0HLfua5IjZlcXvGAGy7cBAXTg2lyQ/8WpNhd6SiZ8Be+xm3FyBSYJx5GKcpRCzBh7RH4/0dnY+uQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -1924,7 +1929,7 @@ packages:
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.32
+      postcss: 8.4.33
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -2211,8 +2216,8 @@ packages:
     dependencies:
       colord: 2.9.3
       css-selector-tokenizer: 0.8.0
-      postcss: 8.4.32
-      postcss-js: 4.0.1(postcss@8.4.32)
+      postcss: 8.4.33
+      postcss-js: 4.0.1(postcss@8.4.33)
       tailwindcss: 3.4.0
     transitivePeerDependencies:
       - ts-node
@@ -2829,6 +2834,12 @@ packages:
   /estraverse@5.3.0:
     resolution: {integrity: sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==}
     engines: {node: '>=4.0'}
+    dev: true
+
+  /estree-walker@3.0.3:
+    resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
+    dependencies:
+      '@types/estree': 1.0.5
     dev: true
 
   /esutils@2.0.3:
@@ -4163,27 +4174,27 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /postcss-import@15.1.0(postcss@8.4.32):
+  /postcss-import@15.1.0(postcss@8.4.33):
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.32
+      postcss: 8.4.33
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
 
-  /postcss-js@4.0.1(postcss@8.4.32):
+  /postcss-js@4.0.1(postcss@8.4.33):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.32
+      postcss: 8.4.33
 
-  /postcss-load-config@4.0.2(postcss@8.4.32):
+  /postcss-load-config@4.0.2(postcss@8.4.33):
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -4196,16 +4207,16 @@ packages:
         optional: true
     dependencies:
       lilconfig: 3.0.0
-      postcss: 8.4.32
+      postcss: 8.4.33
       yaml: 2.3.4
 
-  /postcss-nested@6.0.1(postcss@8.4.32):
+  /postcss-nested@6.0.1(postcss@8.4.33):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.32
+      postcss: 8.4.33
       postcss-selector-parser: 6.0.15
 
   /postcss-selector-parser@6.0.10:
@@ -4226,8 +4237,8 @@ packages:
   /postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
-  /postcss@8.4.32:
-    resolution: {integrity: sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==}
+  /postcss@8.4.33:
+    resolution: {integrity: sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.7
@@ -4977,11 +4988,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.32
-      postcss-import: 15.1.0(postcss@8.4.32)
-      postcss-js: 4.0.1(postcss@8.4.32)
-      postcss-load-config: 4.0.2(postcss@8.4.32)
-      postcss-nested: 6.0.1(postcss@8.4.32)
+      postcss: 8.4.33
+      postcss-import: 15.1.0(postcss@8.4.33)
+      postcss-js: 4.0.1(postcss@8.4.33)
+      postcss-load-config: 4.0.2(postcss@8.4.33)
+      postcss-nested: 6.0.1(postcss@8.4.33)
       postcss-selector-parser: 6.0.15
       resolve: 1.22.8
       sucrase: 3.35.0
@@ -5258,8 +5269,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-node@1.1.1:
-    resolution: {integrity: sha512-2bGE5w4jvym5v8llF6Gu1oBrmImoNSs4WmRVcavnG2me6+8UQntTqLiAMFyiAobp+ZXhj5ZFhI7SmLiFr/jrow==}
+  /vite-node@1.1.2:
+    resolution: {integrity: sha512-2S3Y7T68PMrBbFS2H9Oda2GeordkIU5gLx2toubxPUcFZ+LKZ9L6U69pLtofotwQUrb3NcUImP3fl9GfLplebA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     dependencies:
@@ -5308,14 +5319,14 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.19.11
-      postcss: 8.4.32
+      postcss: 8.4.33
       rollup: 4.9.2
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.1.1(happy-dom@10.11.2):
-    resolution: {integrity: sha512-Ry2qs4UOu/KjpXVfOCfQkTnwSXYGrqTbBZxw6reIYEFjSy1QUARRg5pxiI5BEXy+kBVntxUYNMlq4Co+2vD3fQ==}
+  /vitest@1.1.2(happy-dom@10.11.2):
+    resolution: {integrity: sha512-nEw58z0PFBARwo3hWx6aKmI0Rob2avL9Mt2IYW+5mH5dS4S39J+VLH9aG8x6KZIgyegdE1p7/3JjZ93FzVCsoQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -5339,11 +5350,11 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@vitest/expect': 1.1.1
-      '@vitest/runner': 1.1.1
-      '@vitest/snapshot': 1.1.1
-      '@vitest/spy': 1.1.1
-      '@vitest/utils': 1.1.1
+      '@vitest/expect': 1.1.2
+      '@vitest/runner': 1.1.2
+      '@vitest/snapshot': 1.1.2
+      '@vitest/spy': 1.1.2
+      '@vitest/utils': 1.1.2
       acorn-walk: 8.3.1
       cac: 6.7.14
       chai: 4.3.10
@@ -5359,7 +5370,7 @@ packages:
       tinybench: 2.5.1
       tinypool: 0.8.1
       vite: 5.0.10
-      vite-node: 1.1.1
+      vite-node: 1.1.2
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
