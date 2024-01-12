@@ -1221,9 +1221,9 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "html2text"
-version = "0.10.2"
+version = "0.10.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8ac5d345668e4aeae6478d4f1fdbb9677b8dab6fd2ec20371c713943befffbe"
+checksum = "5dd01cba842c100b50bd8e6604118ae0811ecbde9bfc4c1d4e1d8f789eae5771"
 dependencies = [
  "dashmap",
  "html5ever",
